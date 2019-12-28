@@ -1,12 +1,13 @@
 <template>
-  <div>
+   <div>
     <router-view></router-view>
     <FooterGuide/>
+    
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-import FooterGuide from './component/footerGuide/footerGuide'
+  import FooterGuide from './component/footerGuide/footerGuide'
   export default {
     components:{
       FooterGuide
@@ -15,7 +16,11 @@ import FooterGuide from './component/footerGuide/footerGuide'
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-
+.div1
+  width 375px
+  height 400px
+  background red
  
 </style>
+
 

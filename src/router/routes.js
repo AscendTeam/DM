@@ -1,5 +1,7 @@
 import Home from '../pages/home/home.vue'
 import Whole from '../pages/whole/whole.vue'
+import Coffee from '../pages/whole/coffee/coffee.vue'
+
 import Discover from '../pages/discover/discover.vue'
 import Wallet from '../pages/wallet/wallet.vue'
 import Profile from '../pages/profile/profile.vue'
@@ -13,7 +15,10 @@ export default [
     path:'/whole',//全部
     component:Whole,
     children:[
-      
+      {
+        path:'/whole/coffee',//发现
+        component:Coffee
+      },
     ]
   },
   {

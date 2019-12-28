@@ -11,13 +11,20 @@
         品牌
       </div>
     </div>
+
     <span class="C-search iconfont iconsearch"></span>
-    
+    <Brand></Brand>
   </div>
+
 </template>
 
 <script type="text/ecmascript-6">
+  import Brand from './brand/brand'
+
   export default {
+    components:{
+      Brand
+    },
     data(){
       return{
         isshow:1, //1.演出  2大咖  3品牌
@@ -49,5 +56,5 @@
       right 10px
       top 12px
       color #aaa
- 
+
 </style>

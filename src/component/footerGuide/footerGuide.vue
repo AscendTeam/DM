@@ -29,7 +29,6 @@
 </script>
 
 <style lang="stylus" scoped>
-  .bottomRouter
         
 
  

@@ -12,17 +12,27 @@
       </div>
     </div>
     <span class="C-search iconfont iconsearch"></span>
-    
+
+    <Coffee v-if="isshow==2"/>
+    <Brand v-if="isshow==3"/>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+import Coffee from './coffee/coffee'
+import Brand from './brand/brand'
   export default {
+    components:{
+
+      Coffee,
+      Brand
+    },
     data(){
       return{
-        isshow:1, //1.演出  2大咖  3品牌
+        isshow:2, //1.演出  2大咖  3品牌
       }
-    }
+    },
+    
   }
 </script>
 

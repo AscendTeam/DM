@@ -3,7 +3,7 @@
 方法不可以包含异步和逻辑处理代码
 */
 export default {
-  xxx (state) { // state是总的state
+  // xxx (state) { // state是总的state
 
-  }
+  // }
 }

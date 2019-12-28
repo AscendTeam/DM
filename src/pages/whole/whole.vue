@@ -1,23 +1,28 @@
 <template>
   <div class="wholeComponent">
     <div class="C-router">
-      <router-link class="listRouter" :class="{active:$route.path==='/whole/***'}" to='/***'>
+      <div class="listRouter" :class="{active:isshow==1}" @click="isshow=1">
         演出
-      </router-link>
-      <router-link class="listRouter" :class="{active:$route.path==='/whole/coffee'}" to='/whole/coffee'>
+      </div>
+      <div class="listRouter" :class="{active:isshow==2}" @click="isshow=2">
         大咖
-      </router-link>
-      <router-link class="listRouter" :class="{active:$route.path==='/whole/***'}" to='/***'>
+      </div>
+      <div class="listRouter" :class="{active:isshow==3}" @click="isshow=3">
         品牌
-      </router-link>
+      </div>
     </div>
-    <span class="C-search">加</span>
-    <router-view></router-view>
+    <span class="C-search iconfont iconsearch"></span>
+    
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   export default {
+    data(){
+      return{
+        isshow:1, //1.演出  2大咖  3品牌
+      }
+    }
   }
 </script>
 
@@ -30,6 +35,7 @@
       display flex
       justify-content center
       .listRouter
+        color #aaa
         padding 0 20px
         text-align center
         font-size 14px
@@ -39,8 +45,9 @@
           font-size 16px
     .C-search
       position absolute
-      font-size 16px
+      font-size 20px
       right 10px
-      top 10px
+      top 12px
+      color #aaa
  
 </style>

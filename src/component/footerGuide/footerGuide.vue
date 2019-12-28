@@ -30,23 +30,7 @@
 
 <style lang="stylus" scoped>
   .bottomRouter
-    position fixed
-    left 0
-    bottom 0
-    height 50px
-    width 100%
-    background-color #eee
-    .listRouter
-      display inline-block
-      width 20%
-      
-      text-align center
-      font-size 12px
-      &.active
-        color red
-      span 
-        display block
-        font-size 22px
-        padding 6px 0 
+        
+
  
 </style>

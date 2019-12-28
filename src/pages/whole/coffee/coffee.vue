@@ -1,6 +1,10 @@
 <template>
-  <div>
-    454545
+  <div class="C-coffeeComponent">
+    <ul class="C-coffeeList">
+      <li class="C-Item">
+        推荐
+      </li>
+    </ul>
   </div>
 </template>
 

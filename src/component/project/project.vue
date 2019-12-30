@@ -1,157 +1,201 @@
 <template>
-  <div class="y_project_container">
-    <div class="y_project_header">
-      <!--    顶部返回\分享-->
-      <div class="y_back-share_container">
-        <i class="back iconfont iconarrow-lift"></i>
-        <div class="y_share_button">
-          <span class="y_share_icon">￥</span>
-          <span class="y_share_span">分享</span>
+  <div>
+    <div class="y_project_container">
+      <div class="y_project_header">
+        <!--    顶部返回\分享-->
+        <div class="y_back-share_container">
+          <i class="back iconfont iconarrow-lift"></i>
+          <div class="y_share_button">
+            <span class="y_share_icon">￥</span>
+            <span class="y_share_span">分享</span>
+          </div>
         </div>
       </div>
-    </div>
-    <!--  标题\价格  -->
-    <div class="y_header_project_info">
-      <img src="//img.alicdn.com/bao/uploaded/i2/2251059038/O1CN01RfYiqp2GdSCziBcJD_!!0-item_pic.jpg_q50.jpg_.webp">
-      <div class="y_project_info_container">
-        <div class="y_project_title">
-          <p class="y_title">【北京】德云社相声大会（北京）-新街口德云社</p>
-          <span class="y_label y_super_label">超品日</span>
-          <span class="y_label">总票代</span>
-          <span class="y_label">相声</span>
-        </div>
-        <div class="y_project_price">
-          <span class="price">￥</span>
-          <span>100</span>
-          <span class="price"> -￥</span>
-          <span>3800</span>
-        </div>
-      </div>
-    </div>
-    <!--  购票详情页面  -->
-    <div class="y_project_more_info">
-      <!--   注意事项  -->
-      <div class="y_project_notices">
-        <ul class="y_project_notices_list">
-          <li class="y_project_notices_item">
-            <span class="y_notices_icon">!</span>
-            <span>不支持退</span>
-          </li>
-          <li class="y_project_notices_item">
-            <span class="y_notices_icon">!</span>
-            <span>不支持退</span>
-          </li>
-        </ul>
-        <i class="y_notices_moreinfo iconfont iconjiantou"></i>
-      </div>
-      <!--   演出时长   -->
-      <div class="y_project_time">
-        <div class="y_time_info">
-          <span class="y_time_info_data">2019.12.27-2020.01.05</span>
-          <span class="y_time_info_length">演出时长约120分钟（以现场为准）</span>
-        </div>
-        <i class="y_notices_moreinfo iconfont iconjiantou"></i>
-      </div>
-      <!--   演出地点   -->
-      <div class="y_project_address">
-        <div class="y_address_info">
-          <span class="y_address_info_name">北京市 | 德云社新接口剧场</span>
-          <span class="y_address_info_detail">新街口北大街74号</span>
-        </div>
-        <div class="y_address_icon_container">
-          <i class="y_address_icon iconfont icondizhi1"></i>
-          <span>17.7km</span>
+      <!--  标题\价格  -->
+      <div class="y_header_project_info">
+        <img src="//img.alicdn.com/bao/uploaded/i2/2251059038/O1CN01RfYiqp2GdSCziBcJD_!!0-item_pic.jpg_q50.jpg_.webp">
+        <div class="y_project_info_container">
+          <div class="y_project_title">
+            <p class="y_title">【北京】德云社相声大会（北京）-新街口德云社</p>
+            <span class="y_label y_super_label">超品日</span>
+            <span class="y_label">总票代</span>
+            <span class="y_label">相声</span>
+          </div>
+          <div class="y_project_price">
+            <span class="price">￥</span>
+            <span>100</span>
+            <span class="price"> -￥</span>
+            <span>3800</span>
+          </div>
         </div>
       </div>
-    </div>
-    <!--  榜单排名  -->
-    <div class="y_project_rank">
-      <div class="y_rank_container">
-        <span class="y_rank_icon">榜</span>
-        <span class="y_rank_info">曲苑杂坛榜单NO.1</span>
-      </div>
-      <i class="y_notices_moreinfo iconfont iconjiantou"></i>
-    </div>
-    <!--  具体详情页面-->
-    <div class="y_project_detail_container">
-    <!--  详情/评价/须知/推荐-->
-      <div class="y_project_detail_choice">
-        <div class="y_detail_container">
-          <ul>
-            <li class="y_detail_item_info detail_item_chiose">
-              详情
-            <p class="y_detail_item_info detail_item_chiose"></p>
+      <!--  购票详情页面  -->
+      <div class="y_project_more_info">
+        <!--   注意事项  -->
+        <div class="y_project_notices">
+          <ul class="y_project_notices_list">
+            <li class="y_project_notices_item">
+              <span class="y_notices_icon">!</span>
+              <span>不支持退</span>
             </li>
-            <li class="y_detail_item_comment">评价</li>
-            <li class="y_detail_item_notice">须知</li>
-            <li class="y_detail_item_suggestion">推荐</li>
+            <li class="y_project_notices_item">
+              <span class="y_notices_icon">!</span>
+              <span>不支持退</span>
+            </li>
           </ul>
+          <i class="y_notices_moreinfo iconfont iconjiantou"></i>
+        </div>
+        <!--   演出时长   -->
+        <div class="y_project_time">
+          <div class="y_time_info">
+            <span class="y_time_info_data">2019.12.27-2020.01.05</span>
+            <span class="y_time_info_length">演出时长约120分钟（以现场为准）</span>
+          </div>
+          <i class="y_notices_moreinfo iconfont iconjiantou"></i>
+        </div>
+        <!--   演出地点   -->
+        <div class="y_project_address">
+          <div class="y_address_info">
+            <span class="y_address_info_name">北京市 | 德云社新接口剧场</span>
+            <span class="y_address_info_detail">新街口北大街74号</span>
+          </div>
+          <div class="y_address_icon_container">
+            <i class="y_address_icon iconfont icondizhi1"></i>
+            <span>17.7km</span>
+          </div>
         </div>
       </div>
-      <!--  详情-->
-      <div class="y_detail_info">
-        <img class="y_detail_ads_banner" src="https://img.alicdn.com/tfs/TB1EjBrphD1gK0jSZFsXXbldVXa-648-148.gif_600x600.jpg" alt="">
-        <p class="y_detail_info_title">品牌</p>
-        <div class="y_detail_info_brand">
-          <div class="y_item_info_container">
-            <div class="y_item_img">
-              <img src="//intercms.damai.cn/artist/pic/1554108643078/1554108643078-main.jpg">
-            </div>
-            <div class="y_item_info">
-              <div class="y_item_title_container">
-                <span class="y_item_title">德云社</span>
-                <img src="https://gw.alicdn.com/tfs/TB1c4U2koT1gK0jSZFhXXaAtVXa-72-72.png" alt="">
-              </div>
-              <p>北京相声大会 | 相声社团No1</p>
-            </div>
-          </div>
-          <i class="y_notices_moreinfo iconfont iconjiantou"></i>
+      <!--  榜单排名  -->
+      <div class="y_project_rank">
+        <div class="y_rank_container">
+          <span class="y_rank_icon">榜</span>
+          <span class="y_rank_info">曲苑杂坛榜单NO.1</span>
         </div>
-        <p class="y_detail_info_title">演职人员</p>
-        <div class="y_detail_info_artist">
-          <div class="y_item_info_container">
-            <div class="y_item_img">
-              <img src="//intercms.damai.cn/artist/pic/1554108643078/1554108643078-main.jpg">
-            </div>
-            <div class="y_item_info">
-              <div class="y_item_title_container">
-                <span class="y_item_title">德云社</span>
-                <img src="https://gw.alicdn.com/tfs/TB1c4U2koT1gK0jSZFhXXaAtVXa-72-72.png" alt="">
-              </div>
-              <p>北京相声大会 | 相声社团No1</p>
-            </div>
+        <i class="y_notices_moreinfo iconfont iconjiantou"></i>
+      </div>
+      <!--  具体详情页面-->
+      <div class="y_project_detail_container">
+        <!--  详情/评价/须知/推荐-->
+        <div class="y_project_detail_choice">
+          <div class="y_detail_container">
+            <ul>
+              <li class="y_detail_item_info detail_item_chiose">
+                详情
+                <p class="y_detail_item_info detail_item_chiose"></p>
+              </li>
+              <li class="y_detail_item_comment">评价</li>
+              <li class="y_detail_item_notice">须知</li>
+              <li class="y_detail_item_suggestion">推荐</li>
+            </ul>
           </div>
-          <i class="y_notices_moreinfo iconfont iconjiantou"></i>
         </div>
-        <p class="y_detail_info_title">演出介绍</p>
-        <div class="y_detail_info_tips_container">
-          <p class="y_detail_info_title">温馨提示:</p>
-          <p class="y_detail_info_Tips">本项目自2019年7月12日起需实名制购票，一票一证（一票一证指每张门票均需对应不同且首次使用的身份证号码）。无论同一订单购买单张或多张门票，如您提供的身份证信息已被用于其他购票渠道购买本项目门票，或出现多张门票重复使用同一身份证信息等任何违反一票一证制度的购买行为，大麦网将会在5个工作日内通过系统原路退回该订单下全部票款，不予出票。购票成功后，请携带购票时填写的身份证原件换取纸制门票入场。本项目不支持换票码取票。</p>
-          <p class="y_detail_info_title">换票地点:</p>
-          <p class="y_detail_info_Tips">大麦网门店：北京市东城区东中街32号楼七层大麦自助换票机 ，工作时间周一至周日：9：00-18：00。</p>
-          <p class="y_detail_info_title">售票时间:</p>
-          <p class="y_detail_info_Tips"></p>
-          <p class="y_detail_info_title">演出时间及内容:</p>
-          <p class="y_detail_info_Tips"></p>
-          <p class="y_detail_info_title">三庆园简介</p>
-          <p class="y_detail_info_Tips"></p>
-          <p class="y_detail_info_title">购票须知:</p>
-          <p class="y_detail_info_Tips"></p>
-          <p class="y_detail_info_title">演出节目单:</p>
-          <p class="y_detail_info_Tips"></p>
+        <!--  详情-->
+        <div class="y_detail_info">
+          <img class="y_detail_ads_banner" src="https://img.alicdn.com/tfs/TB1EjBrphD1gK0jSZFsXXbldVXa-648-148.gif_600x600.jpg" alt="">
+          <p class="y_detail_info_title">品牌</p>
+          <div class="y_detail_info_brand">
+            <div class="y_item_info_container">
+              <div class="y_item_img">
+                <img src="//intercms.damai.cn/artist/pic/1554108643078/1554108643078-main.jpg">
+              </div>
+              <div class="y_item_info">
+                <div class="y_item_title_container">
+                  <span class="y_item_title">德云社</span>
+                  <img src="https://gw.alicdn.com/tfs/TB1c4U2koT1gK0jSZFhXXaAtVXa-72-72.png" alt="">
+                </div>
+                <p>北京相声大会 | 相声社团No1</p>
+              </div>
+            </div>
+            <i class="y_notices_moreinfo iconfont iconjiantou"></i>
+          </div>
+          <p class="y_detail_info_title">演职人员</p>
+          <div class="y_detail_info_artist">
+            <div class="y_item_info_container">
+              <div class="y_item_img">
+                <img src="//intercms.damai.cn/artist/pic/1554108643078/1554108643078-main.jpg">
+              </div>
+              <div class="y_item_info">
+                <div class="y_item_title_container">
+                  <span class="y_item_title">德云社</span>
+                  <img src="https://gw.alicdn.com/tfs/TB1c4U2koT1gK0jSZFhXXaAtVXa-72-72.png" alt="">
+                </div>
+                <p>北京相声大会 | 相声社团No1</p>
+              </div>
+            </div>
+            <i class="y_notices_moreinfo iconfont iconjiantou"></i>
+          </div>
+          <p class="y_detail_info_title">演出介绍</p>
+          <div class="y_detail_info_tips_container">
+            <p class="y_detail_info_title">温馨提示:</p>
+            <p class="y_detail_info_Tips">本项目自2019年7月12日起需实名制购票，一票一证（一票一证指每张门票均需对应不同且首次使用的身份证号码）。无论同一订单购买单张或多张门票，如您提供的身份证信息已被用于其他购票渠道购买本项目门票，或出现多张门票重复使用同一身份证信息等任何违反一票一证制度的购买行为，大麦网将会在5个工作日内通过系统原路退回该订单下全部票款，不予出票。购票成功后，请携带购票时填写的身份证原件换取纸制门票入场。本项目不支持换票码取票。</p>
+            <p class="y_detail_info_title">换票地点:</p>
+            <p class="y_detail_info_Tips">大麦网门店：北京市东城区东中街32号楼七层大麦自助换票机 ，工作时间周一至周日：9：00-18：00。</p>
+            <p class="y_detail_info_title">售票时间:</p>
+            <p class="y_detail_info_Tips">每周五上午10：00售下周演出门票</p>
+            <p class="y_detail_info_title">演出时间及内容:</p>
+            <p class="y_detail_info_Tips">每周一至周日：相声专场</p>
+            <p class="y_detail_info_Tips">每周六下午14：30：评书专场</p>
+            <p class="y_detail_info_title">三庆园简介</p>
+            <p class="y_detail_info_Tips">北京三庆园，又名“三庆戏院”，位于前门外大栅栏街18号，是一家以京剧演出为主的老戏园子。据1842年版《梦华琐簿》记述“今日三庆园,乾隆年间宴乐居也。”四大徽班之一的三庆班将此作为首选的主要场所，(1796)更名为三庆园。名家荟萃，生意兴旺，与广德楼、广和楼、庆乐园、同乐轩、庆和园、中和园一同被誉为“京城七大戏楼”， 距今已有220年历史，曾见证了京剧从萌芽、形成、成熟到高峰的全过程。 </p>
+            <p class="y_detail_info_title">购票须知:</p>
+            <p class="y_detail_info_Tips">1、本场馆一律对桌对号入座。</p>
+            <p class="y_detail_info_Tips">2、1.2米以下儿童谢绝入场，1.2米以上儿童照章购票。</p>
+            <p class="y_detail_info_title">演出节目单:</p>
+            <p class="y_detail_info_Tips">德云社相声演出八队</p>
+            <p class="y_detail_info_Tips">三庆园剧场</p>
+            <p class="y_detail_info_Tips">2019年12月24日（星期二）晚场</p>
+            <p class="y_detail_info_Tips">1孙经纬 邓福均（助演）</p>
+            <p class="y_detail_info_Tips">2李九天 董九力【论梦】</p>
+            <p class="y_detail_info_Tips">3董九涵 孙霄尧【偷论】</p>
+            <p class="y_detail_info_Tips">4李九春 韩鹤晓【朱夫子】</p>
+            <p class="y_detail_info_Tips">5姬鹤武 王鹤江【相面】</p>
+            <p class="y_detail_info_Tips">6董九力 李九天【汾河湾】</p>
+          </div>
+        </div>
+        <div class="y_detail_comment">
 
         </div>
+        <div class="y_detail_notice">
+          <p class="y_detail_info_title">购票须知</p>
+          <div class="y_detail_info_tips_container">
+            <p class="y_detail_info_title">限购规则</p>
+            <p class="y_detail_info_Tips">每笔订单最多购买2张、每个用户最多购买2张。</p>
+            <p class="y_detail_info_title">实名购票规则</p>
+            <p class="y_detail_info_Tips">一个证件每个场次只能买一张票；证件支持：身份证，本演出场所禁止携带饮料、食品；禁止录音、录像；拍照时禁用闪光灯，请您注意现场工作人员的提示，予以配合</p>
+            <p class="y_detail_info_title">优惠券使用规则</p>
+            <p class="y_detail_info_Tips">本项目不支持除大麦网VIP会员优惠券及指定膨胀金以外的其他优惠券购票，敬请理解</p>
+          </div>
+          <p class="y_bottom_line"></p>
+          <p class="y_detail_info_title">观演须知</p>
+          <div class="y_detail_info_tips_container">
+            <p class="y_detail_info_title">入场时间</p>
+            <p class="y_detail_info_Tips">演出前约30分钟</p>
+            <p class="y_detail_info_title">禁止携带物品</p>
+            <p class="y_detail_info_Tips">由于安保和版权的原因，本演出场所禁止携带饮料、食品；禁止录音、录像；拍照时禁用闪光灯，请您注意现场工作人员的提示，予以配合</p>
+            <p class="y_detail_info_title">寄存说明</p>
+            <p class="y_detail_info_Tips">无寄存处，请自行保管携带物品</p>
+          </div>
+        </div>
+        <div class="y_detail_suggestion"></div>
       </div>
-      <div class="y_detail_comment"></div>
-      <div class="y_detail_notice"></div>
-      <div class="y_detail_suggestion"></div>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+    </div>
+    <div class="y_buyTicket_container">
+      <div class="y_kefu_container">
+        <i class="iconfont iconkefu"></i>
+        <span>客服</span>
+      </div>
+      <div class="y_want_container">
+        <i class="iconfont iconguanzhu"></i>
+        <span>想看</span>
+      </div>
+      <div class="y_buy_container">
+        <div class="y_but_seat">
+          选座购买
+        </div>
+      </div>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -361,6 +405,16 @@
 
     /*具体详情页面*/
     .y_project_detail_container
+      background #f7f7f7
+      // 标题标签
+      .y_detail_info_title
+        font-size 16px
+        font-weight bold
+        padding 10px 0 4px
+      .y_detail_info_Tips
+        font-size 13px
+        color #888
+        line-height 1.5em
       /*详情\评价\须知\推荐 选择框*/
       .y_project_detail_choice
         padding 15px 20px
@@ -389,18 +443,16 @@
 
       /*详情*/
       .y_detail_info
+        margin-bottom 10px
+        background red
         padding 0 20px
+        background white
         // 广告banner
         .y_detail_ads_banner
           border-radius 10px
           width 100%
           overflow hidden
           margin-bottom 10px
-        // 标题标签
-        .y_detail_info_title
-          font-size 16px
-          font-weight bold
-          padding 10px 0 4px
         // 品牌
         .y_detail_info_brand
           padding 10px 0px
@@ -472,15 +524,64 @@
 
         // 温馨提示
         .y_detail_info_tips_container
+          padding-bottom 10px
           .y_detail_info_title
             font-weight normal
+            font-size 14px
           .y_detail_info_Tips
-            font-size 12px
-
+            font-size 13px
+            color #888
+            line-height 1.5em
       /*评价*/
-      /*.y_detail_comment*/
+      .y_detail_comment
+
       /*须知*/
-      /*.y_detail_notice*/
+      .y_detail_notice
+        margin-bottom 10px
+        background red
+        padding 0 20px
+        background white
+        .y_bottom_line
+          padding-top 10px
+          border-bottom 1px solid #F6F6F6
+        .y_detail_info_title
+          font-weight normal
+          font-size 14px
+        .y_detail_info_Tips
+          font-size 13px
+          color #888
+          line-height 1.5em
       /*推荐*/
       /*.y_detail_suggestion*/
+  .y_buyTicket_container
+    display flex
+    flex-direction row
+    justify-content space-between
+    height 40px
+    align-items center
+    font-size 14px
+    color #676767
+    padding 12px 20px 100px
+    i
+      font-size 24px
+      font-weight bold
+    .y_kefu_container
+      display flex
+      flex-direction column
+      align-items center
+    .y_want_container
+      display flex
+      flex-direction column
+      align-items center
+    .y_buy_container
+      background #FF4090
+      width 250px
+      height 40px
+      margin-left 10px
+      border-radius 20px 20px 20px 0
+      .y_but_seat
+        text-align center
+        line-height 40px
+        font-size 20px
+        color white
 </style>

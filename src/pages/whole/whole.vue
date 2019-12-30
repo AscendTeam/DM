@@ -13,8 +13,6 @@
     </div>
 
     <span class="C-search iconfont iconsearch"></span>
-    <Brand></Brand>
-
     <Coffee v-if="isshow==2"/>
     <Brand v-if="isshow==3"/>
   </div>

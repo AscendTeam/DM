@@ -1,9 +1,9 @@
 <template>
   <div class="showContainer">
       
-    <div class="wrapper">
-      <ul class="content" ref="wrap">
-        <li class="listItem" v-for="(item, index) in navList" :key="index">{{item}}</li>
+    <div class="wrapper" ref="wrap">
+      <ul class="content" >
+        <li @click="changeShow(index)" class="listItem " :class="{active:navIndex ===index}" v-for="(item, index) in navList" :key="index">{{item}}</li>
       </ul>
     </div>
     <div class="listContainer">
@@ -46,6 +46,7 @@
   export default {
     data() {
       return {
+        navIndex:0,
          navList:[
           '全部',
           '折扣',
@@ -73,6 +74,12 @@
           new BScroll(".wrapper",{scrollX:true,bounce:false})
         })
     },
+    methods: {
+      changeShow(index){
+        
+
+      }
+    },
   }
 </script>
 
@@ -99,9 +106,10 @@
           height 40px
           display inline-block
           font-size 16px
-          margin-left 5px
+          margin-left 20px
+          text-align center
           &.active
-            color #000
+            color red
             font-size 16px
     .listContainer
       display flex

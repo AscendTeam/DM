@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "better-scroll": "^1.15.2",
-    "core-js": "^3.4.3",
     "lib-flexible": "^0.3.2",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",

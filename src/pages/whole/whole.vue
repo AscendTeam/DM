@@ -12,43 +12,33 @@
         品牌
       </div>
     </div>
+
     <span class="C-search iconfont iconsearch"></span>
-    
-    </div>
-
-
+    <Brand></Brand>
+    <Show v-if="isshow==1"/>
+    <Coffee v-if="isshow==2"/>
+    <Brand v-if="isshow==3"/>
+  </div>
 </template>
 
 <script type="text/ecmascript-6">
-  
-  import Show from '@/components/show/show.vue'
+import Show from './show/show'
+import Coffee from './coffee/coffee'
+import Brand from './brand/brand'
+
   export default {
     components:{
-      Show
+      Coffee,
+      Brand,
+       Show
     },
     data(){
       return{
-        isshow:1, //1.演出  2大咖  3品牌
-        navList:[
-          '全部',
-          '折扣',
-          '演唱会',
-          '演唱会',
-          '演唱会',
-          '演唱会',
-          '演唱会',
-          '演唱会',
-          '演唱会',
-          '演唱会',
-          '演唱会',
-          '演唱会',
-          '演唱会',
-          '演唱会',
-          
-        ]
+        isshow:2, //1.演出  2大咖  3品牌
+       
       }
     },
-    
+
   }
 </script>
 
@@ -77,5 +67,5 @@
       right 10px
       top 12px
       color #aaa
- 
+
 </style>

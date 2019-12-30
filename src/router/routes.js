@@ -4,11 +4,15 @@ import Discover from '../pages/discover/discover.vue'
 import Wallet from '../pages/wallet/wallet.vue'
 import Profile from '../pages/profile/profile.vue'
 import Ticket from '../pages/ticket/ticket.vue'
+
+import Project from '../component/project/project'
+
+
 export default [
   {
     path:'/home',//首页
     component:Home
-    
+
   },
   {
     path:'/whole',//全部
@@ -17,12 +21,12 @@ export default [
   {
     path:'/discover',//发现
     component:Discover
-    
+
   },
   {
     path:'/wallet',//票夹
     component:Wallet
-    
+
   },
   {
     path:'/profile',//我的
@@ -31,5 +35,11 @@ export default [
   {
     path:'/ticket',//跳转抢票站页面
     component:Ticket
+  },
+  {
+    // Project页面 临时放置
+    path:'/project',
+    component:Project
   }
 ]
+

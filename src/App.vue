@@ -6,7 +6,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import FooterGuide from '@/components/footerGuide/footerGuide'
+  import FooterGuide from '@/component/footerGuide/footerGuide'
   export default {
     components:{
       FooterGuide,
@@ -16,7 +16,6 @@
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
 
- 
 </style>
 
 

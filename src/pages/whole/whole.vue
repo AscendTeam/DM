@@ -11,10 +11,7 @@
         品牌
       </div>
     </div>
-
     <span class="C-search iconfont iconsearch"></span>
-    <Brand></Brand>
-
     <div class="componentParcel">
       <Coffee v-if="isshow==2"/>
       <Brand v-if="isshow==3"/>

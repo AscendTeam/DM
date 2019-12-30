@@ -75,8 +75,6 @@
     watch:{
       starList(){
         this.$nextTick(()=>{
-          console.log(1111);
-          
           // new BScroll(this.$refs.contentScroll,{scrollX:true,bounce:false})
           new BScroll(this.$refs.topScroll,{scrollX:true,bounce:false})
           new Swiper('.swiper-container',{

@@ -11,7 +11,9 @@
         品牌
       </div>
     </div>
+
     <span class="C-search iconfont iconsearch"></span>
+    <Brand></Brand>
 
     <div class="componentParcel">
       <Coffee v-if="isshow==2"/>
@@ -25,7 +27,6 @@ import Coffee from './coffee/coffee'
 import Brand from './brand/brand'
   export default {
     components:{
-
       Coffee,
       Brand
     },
@@ -34,7 +35,7 @@ import Brand from './brand/brand'
         isshow:2, //1.演出  2大咖  3品牌
       }
     },
-    
+
   }
 </script>
 
@@ -60,4 +61,5 @@ import Brand from './brand/brand'
       right 10px
       top 12px
       color #aaa
+
 </style>

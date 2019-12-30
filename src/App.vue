@@ -2,7 +2,7 @@
    <div>
     <router-view></router-view>
     <FooterGuide/>
-    
+
   </div>
 </template>
 
@@ -10,17 +10,13 @@
   import FooterGuide from './component/footerGuide/footerGuide'
   export default {
     components:{
-      FooterGuide
+      FooterGuide,
     }
   }
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-.div1
-  width 375px
-  height 400px
-  background red
- 
+
 </style>
 
 

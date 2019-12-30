@@ -1,6 +1,7 @@
 <template>
   <div class="y_brand_container">
     <div class="y_brand_projectlist">
+<!--      标题    -->
       <div class="y_brand_project_title">
         <div class="y_item_img">
           <img src="//intercms.damai.cn/artist/pic/1554108643078/1554108643078-main.jpg">
@@ -16,6 +17,7 @@
       </div>
       <div class="y_brand_project">
         <div class="y_brand_project_container">
+<!--          单项内容    -->
           <div class="y_project_item">
             <div class="y_item_img">
               <span>曲苑杂坛</span>
@@ -76,7 +78,6 @@
 
 
     </div>
-
   </div>
 </template>
 
@@ -95,7 +96,7 @@
         padding 10px 20px
         align-items center
         .y_item_img
-          width 60px; height 60px; border-radius 50%
+          width 70px; height 70px; border-radius 50%
           background #FBFBFB
           position: relative;
           vertical-align middle

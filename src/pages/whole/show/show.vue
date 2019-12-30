@@ -1,8 +1,8 @@
 <template>
   <div class="showContainer">
       
-    <div class="wrapper" ref="wrapper">
-      <ul class="content">
+    <div class="wrapper">
+      <ul class="content" ref="wrap">
         <li class="listItem" v-for="(item, index) in navList" :key="index">{{item}}</li>
       </ul>
     </div>
@@ -66,11 +66,12 @@
       }
     },
      watch: {
-      show(){
-        this.$nextTick(()=>{
-          new BScroll(this.$refs.wrap,{})
+      
+    },
+    mounted() {
+      this.$nextTick(()=>{
+          new BScroll(".wrapper",{scrollX:true,bounce:false})
         })
-      }
     },
   }
 </script>
@@ -82,16 +83,17 @@
     background pink
     .wrapper
       overflow hidden
-      width 100%
+      width 375px
       position absolute
       left 0
       top 40px
-      right 0
-      bottom 0
+      display flex
+      
       .content
+        // width 100%
         background pink	
         white-space nowrap
-        
+        display flex
         .listItem
           line-height 40px
           height 40px

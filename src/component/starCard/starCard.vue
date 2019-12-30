@@ -22,10 +22,10 @@
       <h2>{{starItem.title}}</h2>
       <p>{{starItem.content}}</p>
     </div>
-    <button class="C-btn">
+    <div class="C-btn">
       <span class="number">{{starItem.cityTour.length}}</span>个巡演城市 
       <span class="C-right">{{starItem.cityTour[0].city}}</span>
-    </button>
+    </div>
 
   </div>
 </template>
@@ -55,8 +55,8 @@
   .C-cardComponent
     width 92%
     // margin auto
-    height 200px
-    background-color #555
+    // height 200px
+    // background-color #555
     padding 16px 4%
     border-bottom 1px solid #eee
     .C-header
@@ -130,6 +130,7 @@
       padding-left 14px
       font-size 12px
       color #777
+      line-height 30px
       .number 
         color #FF1268
       .C-right

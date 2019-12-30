@@ -89,6 +89,7 @@ import BScroll from 'better-scroll'
 // import Comment from '../comment/comment'
 import {reqCircle} from '../../api'
   export default {
+    props:["starItem"],
     components:{
       // Comment
     },
@@ -102,8 +103,8 @@ import {reqCircle} from '../../api'
       new BScroll(this.$refs.tourScroll,{scrollX:true})
       // 获取评论信息
        let circle = await reqCircle()
-      //  console.log(circle)
        this.circleArr=circle.data.feedMergeDataList
+       
     }
   }
 </script>

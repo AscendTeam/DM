@@ -8,16 +8,19 @@
         </li>
       </ul>
     </div>
-    <div class="parcel swiper-container" ref="contentScroll">
+    <div class="parcel swiper-container" >
       <div class=" add swiper-wrapper">
-        <div class="module swiper-slide" v-for="(list,index) in listArr" :key="index">
+        <div class="module swiper-slide" v-for="(list,index) in listArr" :key="index" >
           <div class="recommend" v-if="index===0">
-            <StarCard :starItem="item" v-for="(item,index) in starList" :key="index"/>
+            <StarCard :starItem="item" v-for="(item,index) in starList" :key="index" />
           </div>
           <div class="recommend"  v-if="index!==0">
-            <Details style="position=absolute;lfte=375px;top=40px"/>
+            <Details :starItem="starList[index]"/>
           </div>
         </div>
+        <!-- <div class="swiper-slide">11111111111111111111111111111</div>
+        <div class="swiper-slide">22222222222222222222222222222</div>
+        <div class="swiper-slide">32333333333333333333333333333</div> -->
       </div>
       <div class="swiper-pagination"></div>
     </div>
@@ -56,7 +59,7 @@
           '陈绮贞',
           '韦礼安'
         ],
-        isShow:true,//true为推荐 false为其他
+        // isShow:true,//true为推荐 false为其他
         starList:[]
       }
     },
@@ -67,17 +70,21 @@
       if (data.code==0) {
         this.starList = data.data
       }
-      new Swiper('.swiper-container',{
-        pagination: {
-          el: '.swiper-pagination',
-        }
-      })
+      
     },
     watch:{
       starList(){
         this.$nextTick(()=>{
-          new BScroll(this.$refs.contentScroll,{probetype:0})
+          console.log(1111);
+          
+          // new BScroll(this.$refs.contentScroll,{scrollX:true,bounce:false})
           new BScroll(this.$refs.topScroll,{scrollX:true,bounce:false})
+          new Swiper('.swiper-container',{
+            pagination: {
+              // el: '.swiper-pagination',
+              
+            }
+          })
         })
       }
     }
@@ -106,10 +113,10 @@
       .add
         // width 2000px
         .module
-          white-space nowrap
+          // white-space nowrap
           .recommend
             // width 375px
             height 100%
-            white-space nowrap
+            // white-space nowrap
             // display inline-block
 </style>

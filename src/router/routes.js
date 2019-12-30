@@ -3,6 +3,7 @@ import Whole from '../pages/whole/whole.vue'
 import Discover from '../pages/discover/discover.vue'
 import Wallet from '../pages/wallet/wallet.vue'
 import Profile from '../pages/profile/profile.vue'
+import Ticket from '../pages/ticket/ticket.vue'
 export default [
   {
     path:'/home',//首页
@@ -26,6 +27,9 @@ export default [
   {
     path:'/profile',//我的
     component:Profile
-    
   },
+  {
+    path:'/ticket',//跳转抢票站页面
+    component:Ticket
+  }
 ]

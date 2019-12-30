@@ -30,11 +30,11 @@
 
 <style lang="stylus" scoped>
   .bottomRouter
+    width 100%
     position fixed
     left 0
     bottom 0
     height 50px
-    width 100%
     background-color #eee
     .listRouter
       display inline-block

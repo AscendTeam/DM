@@ -13,8 +13,10 @@
     </div>
     <span class="C-search iconfont iconsearch"></span>
 
-    <Coffee v-if="isshow==2"/>
-    <Brand v-if="isshow==3"/>
+    <div class="componentParcel">
+      <Coffee v-if="isshow==2"/>
+      <Brand v-if="isshow==3"/>
+    </div>
   </div>
 </template>
 
@@ -38,7 +40,6 @@ import Brand from './brand/brand'
 
 <style lang="stylus" scoped>
   .wholeComponent
-    height 40px
     width 100%
     // background-color #eee
     .C-router
@@ -59,5 +60,4 @@ import Brand from './brand/brand'
       right 10px
       top 12px
       color #aaa
- 
 </style>

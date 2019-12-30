@@ -4,13 +4,13 @@
 
 //引入axios
 import axios from 'axios'
-import qs from 'qs'
+// import qs from 'qs'
 // import { Indicator, Toast, MessageBox } from 'mint-ui'
-import store from '../store'
+// import store from '../store'
 // import router from '../router'
 
 const instance = axios.create({
-  baseURL:'/api',// 让代理服务器转发请求4000
+  // baseURL:'/api',// 让代理服务器转发请求4000
   timeout:20000, //配置请求超时的时间
 })
 //添加请求拦截器

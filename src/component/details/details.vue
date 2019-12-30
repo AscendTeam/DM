@@ -31,29 +31,38 @@
         </div>
       </div>
     </div>
-    <div class="imgList">
-      <img class="imgItem" src="../starCard/images/14.jpg" alt="">
-      <img class="imgItem" src="../starCard/images/14.jpg" alt="">
-      <img class="imgItem" src="../starCard/images/14.jpg" alt="">
+    <div class="imgscroll" ref="left">
+      <div class="imgList" >
+          <img class="imgItem" src="../starCard/images/14.jpg" alt="">
+          <img class="imgItem" src="../starCard/images/14.jpg" alt="">
+          <img class="imgItem" src="../starCard/images/14.jpg" alt="">
+      </div>
     </div>
     <!-- 巡演城市 -->
     <div class="tourCity">
       <p class="title">巡演城市</p>
-      <div class="tourCityList">
-        <div class="tourCityItem">
-          <p class="cityItem">深圳站</p>
-          <p class="timeItem">2019.12.29...</p>
-          <p class="button">想看</p>
-        </div>
-        <div class="tourCityItem">
-          <p class="cityItem">深圳站</p>
-          <p class="timeItem">2019.12.29...</p>
-          <p class="button">想看</p>
-        </div>
-        <div class="tourCityItem">
-          <p class="cityItem">深圳站</p>
-          <p class="timeItem">2019.12.29...</p>
-          <p class="button">想看</p>
+      <div class="tourScroll" ref="tourScroll">
+        <div class="tourCityList">
+          <div class="tourCityItem">
+            <p class="cityItem">深圳站</p>
+            <p class="timeItem">2019.12.29...</p>
+            <p class="button">想看</p>
+          </div>
+          <div class="tourCityItem">
+            <p class="cityItem">深圳站</p>
+            <p class="timeItem">2019.12.29...</p>
+            <p class="button">想看</p>
+          </div>
+          <div class="tourCityItem">
+            <p class="cityItem">深圳站</p>
+            <p class="timeItem">2019.12.29...</p>
+            <p class="button">想看</p>
+          </div>
+          <div class="tourCityItem">
+            <p class="cityItem">深圳站</p>
+            <p class="timeItem">2019.12.29...</p>
+            <p class="button">想看</p>
+          </div>
         </div>
       </div>
     </div>
@@ -64,16 +73,38 @@
       <p class="dynamicItem">星统环球入驻林</p>
     </div>
     <div class="frame"></div>
-    <Comment/>
-    <div style="height:1000px"></div>
+    <div class="soltComponent">
+      <div class="commentShow">全部</div>
+      <!-- 全部/官方 -->
+    </div>
+    <!-- <div v-for="(item,index) in circleArr" :key="index">
+      <Comment :circleItem="item"/>
+    </div> -->
+    <!-- <div style="height:1000px"></div> -->
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-import Comment from '../comment/comment'
+import BScroll from 'better-scroll'
+// import Comment from '../comment/comment'
+import {reqCircle} from '../../api'
   export default {
+    props:["starItem"],
     components:{
-      Comment
+      // Comment
+    },
+    data(){
+      return{
+        circleArr:[]
+      }
+    },
+    async mounted(){
+      new BScroll(this.$refs.left,{scrollX:true})
+      new BScroll(this.$refs.tourScroll,{scrollX:true})
+      // 获取评论信息
+       let circle = await reqCircle()
+       this.circleArr=circle.data.feedMergeDataList
+       
     }
   }
 </script>
@@ -84,11 +115,37 @@ import Comment from '../comment/comment'
     width 120vw
     height 10px
     background-color #eee
+    
+  .soltComponent
+    position relative
+    margin-top 10px
+    width 64px
+    height 22px
+    border-radius 10px
+    background-color #F2F2F2
+    .commentShow
+      position absolute
+      left 0
+      // left 24px
+      top 0
+      width 40px
+      height 20px
+      line-height 20px
+      text-align center
+      background-color #ffffff
+      border-radius 10px
+      border 1px solid #EBEBEB
   .C-detailComponent
     // background-color pink
+    overflow hidden
     width 92%
-    margin auto
+    // height 100%
+    padding 0 4%
+    background-image url('https://intercms.damai.cn/artist/bgpic/1571306137043/1571306137043-main.jpg?x-oss-process=image/resize,w_750,/quality,q_50/format,webp')
+    background-repeat no-repeat
+    background-size 100% 200px
     .detailHeader
+      
       display flex
       .detailLeft
         width 60%
@@ -141,45 +198,52 @@ import Comment from '../comment/comment'
             font-size 14px
             button 0
             left 0
-    .imgList
-      border-bottom 1px solid #eee
-      padding 10px 0
-      display flex
-      .imgItem
-        height 100px
-        width 220px 
+    .imgscroll
+      white-space nowrap
+      .imgList
+        border-bottom 1px solid #eee
+        padding 10px 0
+        display inline-block
+        .imgItem
+          display inline-block
+          height 100px
+          width 220px 
     .tourCity
       border-bottom 1px solid #eee
       .title
         padding 10px 0
         font-size 16px
         width 100%
-      .tourCityList
-        display flex
-        .tourCityItem
-          border 1px solid #EFEFEF
-          margin-right 10px
-          border-radius 16px
-          height 100px
-          width 100px
-          background-color #F4F9F9
-          border-radius 5px
-          .cityItem
-            padding-top 10px
-            text-align center
-          .timeItem
-            color #B0B4B7
-            text-align center
-            padding 10px 0
-          .button
-            height 20px
-            width 40px
-            margin 0 auto
-            text-align center
-            line-height 20px
-            border 1px solid #C3D6D7
-            border-radius 10px
-            color #76b8de
+      .tourScroll
+        white-space nowrap
+        .tourCityList
+          display inline-block
+          margin-bottom 10px
+          .tourCityItem
+            display inline-block
+            border 1px solid #EFEFEF
+            margin-right 10px
+            border-radius 16px
+            height 100px
+            width 100px
+            background-color #F4F9F9
+            border-radius 5px
+            .cityItem
+              padding-top 10px
+              text-align center
+            .timeItem
+              color #B0B4B7
+              text-align center
+              padding 10px 0
+            .button
+              height 20px
+              width 40px
+              margin 0 auto
+              text-align center
+              line-height 20px
+              border 1px solid #C3D6D7
+              border-radius 10px
+              color #76b8de
     .dynamic
       padding-bottom 10px
       .title

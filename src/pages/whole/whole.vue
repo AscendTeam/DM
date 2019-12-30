@@ -13,8 +13,10 @@
     </div>
 
     <span class="C-search iconfont iconsearch"></span>
-    <Coffee v-if="isshow==2"/>
-    <Brand v-if="isshow==3"/>
+    <div class="componentParcel">
+      <Coffee v-if="isshow==2"/>
+      <Brand v-if="isshow==3"/>
+    </div>
   </div>
 </template>
 

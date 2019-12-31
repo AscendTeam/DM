@@ -83,6 +83,9 @@
 <script>
   import BScroll from 'better-scroll'
   export default {
+    props:[
+      'data'
+    ],
     mounted() {
       // let scroll = new BScroll('.wrapper',{
       let scroll = new BScroll(this.$refs.wrapper,{

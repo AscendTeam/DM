@@ -1,6 +1,8 @@
 <template>
-   <div>
-    <router-view></router-view>
+  <div>
+    <div class="panel-body">
+      <router-view></router-view>
+    </div>
     <FooterGuide/>
   </div>
 </template>

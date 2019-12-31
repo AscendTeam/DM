@@ -30,7 +30,6 @@ import Brand from './brand/brand'
     },
     data(){
       return{
-        isshow:1, //1.演出  2大咖  3品牌
       }
     },
 

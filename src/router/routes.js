@@ -58,7 +58,7 @@ export default [
   },
   {
     // Project页面 临时放置
-    path: '/project',
+    path: '/project/:index',
     component: Project
   },
 ]

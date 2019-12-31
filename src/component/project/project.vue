@@ -13,19 +13,17 @@
       </div>
       <!--  标题\价格  -->
       <div class="y_header_project_info">
-        <img src="//img.alicdn.com/bao/uploaded/i2/2251059038/O1CN01RfYiqp2GdSCziBcJD_!!0-item_pic.jpg_q50.jpg_.webp">
+        <img :src="projectData.verticalPic">
         <div class="y_project_info_container">
           <div class="y_project_title">
-            <p class="y_title">【北京】德云社相声大会（北京）-新街口德云社</p>
-            <span class="y_label y_super_label">超品日</span>
+            <p class="y_title">【{{projectData.venueCity}}】{{projectData.name}}</p>
+            <span class="y_label y_super_label">超平日</span>
             <span class="y_label">总票代</span>
             <span class="y_label">相声</span>
           </div>
           <div class="y_project_price">
             <span class="price">￥</span>
-            <span>100</span>
-            <span class="price"> -￥</span>
-            <span>3800</span>
+            <span>{{projectData.priceStr}}</span>
           </div>
         </div>
       </div>
@@ -48,7 +46,7 @@
         <!--   演出时长   -->
         <div class="y_project_time">
           <div class="y_time_info">
-            <span class="y_time_info_data">2019.12.27-2020.01.05</span>
+            <span class="y_time_info_data">{{projectData.showTime}}</span>
             <span class="y_time_info_length">演出时长约120分钟（以现场为准）</span>
           </div>
           <i class="y_notices_moreinfo iconfont iconjiantou"></i>
@@ -56,7 +54,7 @@
         <!--   演出地点   -->
         <div class="y_project_address">
           <div class="y_address_info">
-            <span class="y_address_info_name">北京市 | 德云社新接口剧场</span>
+            <span class="y_address_info_name">{{projectData.venueCity}} | {{projectData.venueName}}</span>
             <span class="y_address_info_detail">新街口北大街74号</span>
           </div>
           <div class="y_address_icon_container">
@@ -69,7 +67,7 @@
       <div class="y_project_rank">
         <div class="y_rank_container">
           <span class="y_rank_icon">榜</span>
-          <span class="y_rank_info">曲苑杂坛榜单NO.1</span>
+          <span class="y_rank_info" v-if="projectData.rankingList">{{projectData.rankingList.title}}</span>
         </div>
         <i class="y_notices_moreinfo iconfont iconjiantou"></i>
       </div>
@@ -199,7 +197,22 @@
 </template>
 
 <script>
-  export default {}
+  import {reqBrand} from "../../api";
+
+  export default {
+    data(){
+      return{
+        projectData:{}
+      }
+    },
+
+    async mounted() {
+      let id = this.$route.params.index
+      let list = await reqBrand()
+      this.projectData = list.data.performanceMore.find((item,index)=>item.id==id)
+    }
+  }
+
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">

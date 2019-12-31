@@ -1,5 +1,8 @@
 import Home from '../pages/home/home.vue'
 import Whole from '../pages/whole/whole.vue'
+import WholeCoffee from '../pages/whole/coffee/coffee'
+import WholeBrand from '../pages/whole/brand/brand'
+
 import Discover from '../pages/discover/discover.vue'
 import Wallet from '../pages/wallet/wallet.vue'
 import Profile from '../pages/profile/profile.vue'

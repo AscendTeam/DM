@@ -2,7 +2,6 @@
   <div class="C-coffeeComponent">
     <div class="widthUl" ref="topScroll">
       <ul class="C-coffeeList" >
-        
         <li class="C-Item" v-for="(item,index) in listArr" :key="index">
           {{item}}
         </li>
@@ -18,9 +17,6 @@
             <Details :starItem="starList[index]"/>
           </div>
         </div>
-        <!-- <div class="swiper-slide">11111111111111111111111111111</div>
-        <div class="swiper-slide">22222222222222222222222222222</div>
-        <div class="swiper-slide">32333333333333333333333333333</div> -->
       </div>
       <div class="swiper-pagination"></div>
     </div>
@@ -64,18 +60,16 @@
       }
     },
     async mounted(){
-      
-      
       let data = await reqStar()
       if (data.code==0) {
         this.starList = data.data
       }
-      
+
     },
     watch:{
       starList(){
         this.$nextTick(()=>{
-          // new BScroll(this.$refs.contentScroll,{scrollX:true,bounce:false})
+          // new BScroll(this.$refs.contentScroll,{brandItem:true,bounce:false})
           new BScroll(this.$refs.topScroll,{scrollX:true,bounce:false})
           new Swiper('.swiper-container',{
             pagination: {

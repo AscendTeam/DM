@@ -16,10 +16,7 @@
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-.div1
-  width 375px
-  height 400px
-  background red
+
  
 </style>
 

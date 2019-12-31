@@ -4,9 +4,9 @@
 
 //引入axios
 import axios from 'axios'
-import qs from 'qs'
+// import qs from 'qs'
 // import { Indicator, Toast, MessageBox } from 'mint-ui'
-import store from '../store'
+// import store from '../store'
 // import router from '../router'
 
 const instance = axios.create({

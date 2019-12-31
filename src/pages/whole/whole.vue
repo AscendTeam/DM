@@ -18,6 +18,10 @@
     <Show v-if="isshow==1"/>
     <Coffee v-if="isshow==2"/>
     <Brand v-if="isshow==3"/>
+    <div class="componentParcel">
+      <Coffee v-if="isshow==2"/>
+      <Brand v-if="isshow==3"/>
+    </div>
   </div>
 </template>
 

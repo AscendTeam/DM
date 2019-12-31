@@ -3,47 +3,55 @@
       
     <div class="wrapper" ref="wrap">
       <ul class="content" >
-        <li @click="changeShow(index)" class="listItem " :class="{active:navIndex ===index}" v-for="(item, index) in navList" :key="index">{{item}}</li>
+        <li @click="showList(index)" class="listItem " :class="{active:navIndex ===index}" v-for="(item, index) in navList" :key="index">{{item}}</li>
       </ul>
     </div>
-    <div class="listContainer">
-      <img src="./images/ly.jpg" alt="">
-      <div class="showList">
-        <span class="s1">[北京]开心麻花原创贺岁大戏《蒙娜丽莎的微笑》</span>
-        <span class="s2">2020.01.01</span>
-        <span class="s3">￥80起</span>
+    <!-- <div class="parcel swiper-container" >
+      <div class=" add swiper-wrapper">
+        <div class="module swiper-slide" v-for="(list,index) in navList" :key="index" >
+          <div class="recommend" v-if="index===0">
+            <StarCard :starItem="item" v-for="(item,index) in starList" :key="index" />
+          </div>
+          <div class="recommend"  v-if="index!==0">
+            <Details :starItem="starList[index]"/>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="listContainer">
-      <img src="./images/ly.jpg" alt="">
-      <div class="showList">
-        <span class="s1">[北京]开心麻花原创贺岁大戏《蒙娜丽莎的微笑》</span>
-        <span class="s2">2020.01.01</span>
-        <span class="s3">￥80起</span>
+      <div class="swiper-pagination"></div>
+    </div> -->
+    <Whole/>
+    <!-- <div class="parcel swiper-container">
+      <div class="add swiper-wrapper">
+        <div class="module swiper-slide" v-for="(list, index) in navList" :key="index">
+          <div class="all" v-if="index===0">
+            <Whole :starItem="item" v-for="(item,index) in starList" :key="index" />
+          </div>
+          <div class="all"  v-if="index!==0">
+            <Party :starItem="starList[index]"/>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
       </div>
-    </div>
-    <div class="listContainer">
-      <img src="./images/ly.jpg" alt="">
-      <div class="showList">
-        <span class="s1">[北京]开心麻花原创贺岁大戏《蒙娜丽莎的微笑》</span>
-        <span class="s2">2020.01.01</span>
-        <span class="s3">￥80起</span>
-      </div>
-    </div>
-    <div class="listContainer">
-      <img src="./images/ly.jpg" alt="">
-      <div class="showList">
-        <span class="s1">[北京]开心麻花原创贺岁大戏《蒙娜丽莎的微笑》</span>
-        <span class="s2">2020.01.01</span>
-        <span class="s3">￥80起</span>
-      </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+  import Whole from '@/component/whole/whole'
+  import Party from '@/component/party/party'
   import BScroll from 'better-scroll'
+  
+  import Swiper from 'swiper'
+  import  'swiper/css/swiper.min.css'
+  
+ 
   export default {
+    components:{
+      Whole,
+      Party
+      
+    },
+    
     data() {
       return {
         navIndex:0,
@@ -62,25 +70,48 @@
           '演唱会',
           '演唱会',
           '演唱会',
-          
-        ]
+        ],
+        starList:[]
       }
     },
-     watch: {
+    // async mounted(){
       
-    },
-    mounted() {
-      this.$nextTick(()=>{
-          new BScroll(".wrapper",{scrollX:true,bounce:false})
+      
+    //   let data = await reqStar()
+    //   if (data.code==0) {
+    //     this.starList = data.data
+    //   }
+    // },
+   
+      mounted() {
+        this.$nextTick(()=>{
+          new BScroll(this.$refs.wrap,{scrollX:true,bounce:false,click:true})
+          
         })
-    },
-    methods: {
-      changeShow(index){
-        
+      },
+      methods: {
+        showList(index){
+          this.navIndex = index
 
+        }
       }
-    },
   }
+
+      
+    // },
+    //  watch: {
+    //   starList(){
+    //     this.$nextTick(()=>{
+    //       // new BScroll(this.$refs.contentScroll,{scrollX:true,bounce:false})
+    //       new Swiper('.swiper-container',{
+    //         pagination: {
+    //           // el: '.swiper-pagination',
+    //           stopPropergation:false
+    //         }
+    //       })
+    //     })
+    //   }
+    // }
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
@@ -94,13 +125,12 @@
       position absolute
       left 0
       top 40px
-      display flex
-      
+      white-space nowrap
       .content
         // width 100%
         background pink	
-        white-space nowrap
-        display flex
+        
+        display inline-block
         .listItem
           line-height 40px
           height 40px
@@ -111,29 +141,6 @@
           &.active
             color red
             font-size 16px
-    .listContainer
-      display flex
-      margin-top 30px 
-      img 
-        width 120px
-        height 120px
-        border-radius 8px
-      .showList
-        span 
-          display block
-          margin-left 10px
-       
-        
-        .s1
-          padding 10px 0
-          font-size 22px
+    
 
-        .s2
-          padding-top 10px
-          font-size 18px
-        .s3
-          font-size 16px
-          padding-top 5px
-          color orange
- 
 </style>

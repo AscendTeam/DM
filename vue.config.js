@@ -7,6 +7,7 @@ module.exports={
   // no-console:false,
   lintOnSave: false,
   devServer:{
+    open:true,
     proxy:{
       '/api':{
         target:'http://localhost:3000',//转发目标地址

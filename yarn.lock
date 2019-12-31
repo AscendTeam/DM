@@ -1236,6 +1236,13 @@ aggregate-error@^3.0.0:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
+ajax@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.npm.taobao.org/ajax/download/ajax-0.0.4.tgz#b6f4ce8bd590f5f4ba2dcfde11de789f209f2423"
+  integrity sha1-tvTOi9WQ9fS6Lc/eEd54nyCfJCM=
+  dependencies:
+    underscore ""
+
 ajv-errors@^1.0.0:
   version "1.0.1"
   resolved "https://registry.npm.taobao.org/ajv-errors/download/ajv-errors-1.0.1.tgz#f35986aceb91afadec4102fbd85014950cefa64d"
@@ -2343,14 +2350,10 @@ core-js-compat@^3.4.3, core-js-compat@^3.6.0:
 
 core-js@^2.4.0:
   version "2.6.11"
-<<<<<<< HEAD
-  resolved "https://registry.npm.taobao.org/core-js/download/core-js-2.6.11.tgz#38831469f9922bded8ee21c9dc46985e0399308c"
-=======
   resolved "https://registry.npm.taobao.org/core-js/download/core-js-2.6.11.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcore-js%2Fdownload%2Fcore-js-2.6.11.tgz#38831469f9922bded8ee21c9dc46985e0399308c"
->>>>>>> b9ff113f230deca1c45578fcdb7ee234298f21d3
   integrity sha1-OIMUafmSK97Y7iHJ3EaYXgOZMIw=
 
-core-js@^3.4.3:
+core-js@^3.4.3, core-js@^3.6.1:
   version "3.6.1"
   resolved "https://registry.npm.taobao.org/core-js/download/core-js-3.6.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcore-js%2Fdownload%2Fcore-js-3.6.1.tgz#39d5e2e346258cc01eb7d44345b1c3c014ca3f05"
   integrity sha1-OdXi40YljMAet9RDRbHDwBTKPwU=
@@ -6525,11 +6528,7 @@ regenerate@^1.4.0:
 
 regenerator-runtime@^0.11.0:
   version "0.11.1"
-<<<<<<< HEAD
-  resolved "https://registry.npm.taobao.org/regenerator-runtime/download/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
-=======
   resolved "https://registry.npm.taobao.org/regenerator-runtime/download/regenerator-runtime-0.11.1.tgz?cache=0&sync_timestamp=1569523243554&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fregenerator-runtime%2Fdownload%2Fregenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
->>>>>>> b9ff113f230deca1c45578fcdb7ee234298f21d3
   integrity sha1-vgWtf5v30i4Fb5cmzuUBf78Z4uk=
 
 regenerator-runtime@^0.13.2:
@@ -7497,7 +7496,7 @@ svgo@^1.0.0:
 
 swiper@^5.2.1:
   version "5.2.1"
-  resolved "https://registry.npm.taobao.org/swiper/download/swiper-5.2.1.tgz?cache=0&sync_timestamp=1574249719653&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fswiper%2Fdownload%2Fswiper-5.2.1.tgz#72070777b9efb1318546ba48d7154939cd170196"
+  resolved "https://registry.npm.taobao.org/swiper/download/swiper-5.2.1.tgz?cache=0&sync_timestamp=1574250298651&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fswiper%2Fdownload%2Fswiper-5.2.1.tgz#72070777b9efb1318546ba48d7154939cd170196"
   integrity sha1-cgcHd7nvsTGFRrpI1xVJOc0XAZY=
   dependencies:
     dom7 "^2.1.3"
@@ -7749,6 +7748,11 @@ uglify-js@^3.1.4:
   dependencies:
     commander "~2.20.3"
     source-map "~0.6.1"
+
+underscore@:
+  version "1.9.1"
+  resolved "https://registry.npm.taobao.org/underscore/download/underscore-1.9.1.tgz#06dce34a0e68a7babc29b365b8e74b8925203961"
+  integrity sha1-BtzjSg5op7q8KbNluOdLiSUgOWE=
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"

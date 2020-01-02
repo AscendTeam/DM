@@ -1,6 +1,7 @@
 import Home from '../pages/home/home.vue'
 import Whole from '../pages/whole/whole.vue'
 import WholeCoffee from '../pages/whole/coffee/coffee'
+import WorksDetail from '../component/worksDetail/worksDetail'
 import WholeBrand from '../pages/whole/brand/brand'
 
 import Discover from '../pages/discover/discover.vue'
@@ -60,6 +61,11 @@ export default [
     // Project页面 临时放置
     path: '/project/:index',
     component: Project
+  },
+  {
+    // 大咖作品详情页面
+    path: '/worksdetail/:index',
+    component: WorksDetail
   },
 ]
 

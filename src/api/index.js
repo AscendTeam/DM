@@ -1,4 +1,4 @@
-/* 
+/*
   接口请求函数的模块
 */
 import ajax from './ajax'
@@ -10,3 +10,6 @@ import ajax from './ajax'
 //获取明星
   // export const reqStar = ()=>ajax('http://localhost:3000/getStar')
   export const reqStar = ()=>ajax('/getstar')
+// 获取brand数据
+//export const reqBrand = ()=>ajax('http://localhost:3000/circle/dys')
+export const reqBrand = ()=>ajax('/circle/dys')

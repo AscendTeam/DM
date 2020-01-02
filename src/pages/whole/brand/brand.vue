@@ -3,13 +3,7 @@
     <div class="y_brand_project_list_container">
       <ul>
         <li class="y_brand_project_item">
-          <ScrollX></ScrollX>
-        </li>
-        <li class="y_brand_project_item">
-          <ScrollX></ScrollX>
-        </li>
-        <li class="y_brand_project_item">
-          <ScrollX></ScrollX>
+          <BrandItem v-if="brandData" :data="brandData" ></BrandItem>
         </li>
       </ul>
 
@@ -19,19 +13,31 @@
 </template>
 
 <script>
-  // import BScroll from 'better-scroll'
-  import ScrollX from '../../../component/scrollX/scrollX'
+  import BrandItem from './brandItem/brandItem'
+
+  import {reqBrand} from '../../../api'
   export default {
     components:{
-      ScrollX,
+      BrandItem
     },
-    // mounted() {
-    //   let scroll = new BScroll('.wrapper',{
-    //     scrollX: true,
-    //     click: true
-    //   })
-    //
-    // }
+    data(){
+      return{
+        brandData:{}
+      }
+    },
+    methods:{
+      getData(){
+        reqBrand().then(response=>{
+          // console.log(response);
+          this.brandData = response.data;
+        }, err=>{
+          console.log(err);
+        })
+      }
+    },
+    mounted(){
+      this.getData();
+    },
   }
 
 </script>

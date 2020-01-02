@@ -1,11 +1,12 @@
 // import { 
   
 //   } from "../../api"
-import {MODARRENTION} from '../mutation-types'
+import {MODARRENTION,MODSTARLIST} from '../mutation-types'
 
   export default{
     state:{
       sartObj:{},//用户关注信息
+      starList:[]
       // token:localStorage.getItem('token_key')||'',
     },
     mutations:{
@@ -16,6 +17,9 @@ import {MODARRENTION} from '../mutation-types'
           Vue.set(sartObj,starItem.star_id,flag)
         }
       },
+      [MODSTARLIST](state,{data}){
+        state.starList=data
+      }
 
     },
     actions:{
@@ -25,6 +29,10 @@ import {MODARRENTION} from '../mutation-types'
         if (starItem.star_id) {
           commit(MODARRENTION,{starItem,flag})
         }
+      },
+      // 存储数据
+      modStarList({commit,state},data){
+        commit(MODSTARLIST,{data})
       }
     },
     getters:{

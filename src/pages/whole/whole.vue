@@ -1,43 +1,30 @@
 <template>
   <div class="wholeComponent">
     <div class="C-router">
-      <div class="listRouter" :class="{active:isshow==1}" @click="isshow=1">
-        演出
-      </div>
-      <div class="listRouter" :class="{active:isshow==2}" @click="isshow=2">
-        大咖
-      </div>
-      <div class="listRouter" :class="{active:isshow==3}" @click="isshow=3">
-        品牌
-      </div>
+        <router-link to="/whole/show" class="listRouter" :class="{active:$route.path==='/whole/show'}">演出</router-link>
+        <router-link to="/whole/coffee" class="listRouter" :class="{active:$route.path==='/whole/coffee'}">大咖</router-link>
+        <router-link to="/whole/brand" class="listRouter" :class="{active:$route.path==='/whole/brand'}">品牌</router-link>
     </div>
-
     <span class="C-search iconfont iconsearch"></span>
     <div class="componentParcel">
-      <Coffee v-if="isshow==2"/>
-      <Brand v-if="isshow==3"/>
+        <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-import Coffee from './coffee/coffee'
-import Brand from './brand/brand'
   export default {
     components:{
-      Coffee,
-      Brand
     },
     data(){
       return{
-        isshow:2, //1.演出  2大咖  3品牌
       }
     },
 
   }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" type="text/stylus" scoped>
   .wholeComponent
     // height 40px
     width 100%
@@ -53,7 +40,7 @@ import Brand from './brand/brand'
         line-height 40px
         &.active
           color #000
-          font-size 16px
+          font-size 18px
     .C-search
       position absolute
       font-size 20px

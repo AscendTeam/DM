@@ -1,41 +1,71 @@
 import Home from '../pages/home/home.vue'
 import Whole from '../pages/whole/whole.vue'
+import WholeCoffee from '../pages/whole/coffee/coffee'
+import WorksDetail from '../component/worksDetail/worksDetail'
+import WholeBrand from '../pages/whole/brand/brand'
+
 import Discover from '../pages/discover/discover.vue'
 import Wallet from '../pages/wallet/wallet.vue'
 import Profile from '../pages/profile/profile.vue'
+import Ticket from '../pages/ticket/ticket.vue'
 
 import Project from '../component/project/project'
 
 
 export default [
   {
-    path:'/home',//首页
-    component:Home
+    path: '',
+    redirect: '/home'
+  },
+  {
+    path: '/home',//首页
+    component: Home
+  },
+  {
+    path: '/whole',//全部
+    component: Whole,
+    children: [
+      {
+        path: "",
+        redirect: 'coffee'
+      },
+      {
+        path: 'coffee',
+        component: WholeCoffee
+      },
+      {
+        path: 'brand',
+        component: WholeBrand
+      }
+    ]
+  },
+  {
+    path: '/discover',//发现
+    component: Discover
+  },
+  {
+    path: '/wallet',//票夹
+    component: Wallet
 
   },
   {
-    path:'/whole',//全部
-    component:Whole,
-  },
-  {
-    path:'/discover',//发现
-    component:Discover
+    path: '/profile',//我的
+    component: Profile
 
   },
   {
-    path:'/wallet',//票夹
-    component:Wallet
-
+    path:'/ticket',//跳转抢票站页面
+    component:Ticket
   },
-  {
-    path:'/profile',//我的
-    component:Profile
-
-  },
-
   {
     // Project页面 临时放置
-    path:'/project',
-    component:Project
+    path: '/project/:index',
+    component: Project
+  },
+  {
+    // 大咖作品详情页面
+    path: '/worksdetail/:index',
+    component: WorksDetail
   },
 ]
+

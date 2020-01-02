@@ -78,7 +78,7 @@ instance.interceptors.response.use(
         alert('请求出错'+error.message)
       }
     } */
-    alert('请求出错'+error.message)
+    //alert('请求出错'+error.message)
     return new Promise(()=>{})
   }
   )

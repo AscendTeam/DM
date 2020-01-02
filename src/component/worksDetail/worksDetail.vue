@@ -4,7 +4,7 @@
       <div class="y_project_header">
         <!--    顶部返回\分享-->
         <div class="y_back-share_container">
-          <i class="back iconfont iconarrow-lift"></i>
+          <i class="back iconfont iconarrow-lift" @click="$router.back()"></i>
           <div class="y_share_button">
             <span class="y_share_icon">￥</span>
             <span class="y_share_span">分享</span>
@@ -13,17 +13,16 @@
       </div>
       <!--  标题\价格  -->
       <div class="y_header_project_info">
-        <img :src="projectData.verticalPic">
+        <img :src="projectData.imgs">
         <div class="y_project_info_container">
           <div class="y_project_title">
-            <p class="y_title">【{{projectData.venueCity}}】{{projectData.name}}</p>
+            <p class="y_title">【{{projectData.cityTour[0].city}}】{{projectData.title}}</p>
             <span class="y_label y_super_label">超平日</span>
             <span class="y_label">总票代</span>
-            <span class="y_label">相声</span>
           </div>
           <div class="y_project_price">
             <span class="price">￥</span>
-            <span>{{projectData.priceStr}}</span>
+            <span>{{projectData.price}}</span>
           </div>
         </div>
       </div>
@@ -46,7 +45,7 @@
         <!--   演出时长   -->
         <div class="y_project_time">
           <div class="y_time_info">
-            <span class="y_time_info_data">{{projectData.showTime}}</span>
+            <span class="y_time_info_data">{{projectData.cityTour[0].times}}</span>
             <span class="y_time_info_length">演出时长约120分钟（以现场为准）</span>
           </div>
           <i class="y_notices_moreinfo iconfont iconjiantou"></i>
@@ -54,7 +53,7 @@
         <!--   演出地点   -->
         <div class="y_project_address">
           <div class="y_address_info">
-            <span class="y_address_info_name">{{projectData.venueCity}} | {{projectData.venueName}}</span>
+            <span class="y_address_info_name">{{projectData.cityTour[0].city}} | {{projectData.venueName}}</span>
             <span class="y_address_info_detail">新街口北大街74号</span>
           </div>
           <div class="y_address_icon_container">
@@ -67,7 +66,7 @@
       <div class="y_project_rank">
         <div class="y_rank_container">
           <span class="y_rank_icon">榜</span>
-          <span class="y_rank_info" v-if="projectData.rankingList">{{projectData.rankingList.title}}</span>
+          <!-- <span class="y_rank_info" v-if="projectData.rankingList">{{projectData.rankingList.title}}</span> -->
         </div>
         <i class="y_notices_moreinfo iconfont iconjiantou"></i>
       </div>
@@ -197,8 +196,8 @@
 </template>
 
 <script>
-  import {reqBrand} from "../../api";
-
+  import {reqStar} from "../../api";
+  // import {mapState} from 'vuex'
   export default {
     data(){
       return{
@@ -208,9 +207,16 @@
 
     async mounted() {
       let id = this.$route.params.index
-      let list = await reqBrand()
-      this.projectData = list.data.performanceMore.find((item,index)=>item.id==id)
-    }
+      let list = await reqStar()
+      this.projectData = list.data.find((item,index)=>item.id==id)
+      console.log(this.projectData);
+      
+    },
+    // computed:{
+    //   ...mapState({
+    //     starList:state=>state.whole.starList
+    //   })
+    // }
   }
 
 </script>

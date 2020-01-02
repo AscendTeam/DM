@@ -55,6 +55,7 @@ export default {
     let data = await reqStar();
     if (data.code == 0) {
       this.starList = data.data;
+      this.$store.dispatch("modStarList",data.data)
     }
     
   },
@@ -90,15 +91,8 @@ export default {
               if (event.target.attributes.name) {
                 // 这是唯一标识id
                 console.log(event.target.innerText);
-
-
-
                 // 跳转到详细页面
-
-
-
-
-                this.$router.push("/home")
+                this.$router.push(`/worksdetail/${event.target.innerText}`)
               }
             }
           },

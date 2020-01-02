@@ -13,3 +13,6 @@ import ajax from './ajax'
 // 获取brand数据
 //export const reqBrand = ()=>ajax('/circle/dys')
 export const reqBrand = ()=>ajax('http://localhost:3000/circle/dys')
+
+// 详情页面数据
+export const reqDetail = () => ajax('http://localhost:3000/getdetail')

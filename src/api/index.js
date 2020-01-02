@@ -15,4 +15,4 @@ import ajax from './ajax'
 export const reqBrand = ()=>ajax('/circle/dys')
 
 // 详情页面数据
-export const reqDetail = () => ajax('http://localhost:3000/getdetail')
+export const reqDetail = () => ajax('/getdetail')

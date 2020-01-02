@@ -13,17 +13,20 @@
       </div>
       <!--  标题\价格  -->
       <div class="y_header_project_info">
-        <img :src="projectData.verticalPic">
+        <img :src="projectData.detail.detailViewComponentMap.item.staticData.itemBase.itemPic">
         <div class="y_project_info_container">
           <div class="y_project_title">
-            <p class="y_title">【{{projectData.venueCity}}】{{projectData.name}}</p>
-            <span class="y_label y_super_label">超平日</span>
-            <span class="y_label">总票代</span>
-            <span class="y_label">相声</span>
+            <p class="y_title">{{projectData.detail.detailViewComponentMap.item.staticData.itemBase.itemName}}</p>
+<!--            <span class="y_label y_super_label" >超平日</span>-->
+            <span class="y_label" v-if="projectData.detail.detailViewComponentMap.item.staticData.itemBase.generalAgent.description">{{projectData.detail.detailViewComponentMap.item.staticData.itemBase.generalAgent.description}}</span>
+            <span class="y_label" v-if="projectData.detail.detailViewComponentMap.item.staticData.itemBase.showTag"
+            v-for="(showTagItem,index) in projectData.detail.detailViewComponentMap.item.staticData.itemBase.showTag"
+                  :key="index"
+            >{{showTagItem}}</span>
           </div>
           <div class="y_project_price">
-            <span class="price">￥</span>
-            <span>{{projectData.priceStr}}</span>
+<!--            <span class="price">￥</span>-->
+            <span>{{projectData.detail.detailViewComponentMap.item.item.priceRange}}</span>
           </div>
         </div>
       </div>
@@ -32,13 +35,10 @@
         <!--   注意事项  -->
         <div class="y_project_notices">
           <ul class="y_project_notices_list">
-            <li class="y_project_notices_item">
+            <li class="y_project_notices_item" v-for="(serviceNotes,index) in projectData.detail.detailViewComponentMap.item.staticData.itemBase.serviceNotes"
+            :key="index">
               <span class="y_notices_icon">!</span>
-              <span>不支持退</span>
-            </li>
-            <li class="y_project_notices_item">
-              <span class="y_notices_icon">!</span>
-              <span>不支持退</span>
+              <span>{{serviceNotes.tagName}}</span>
             </li>
           </ul>
           <i class="y_notices_moreinfo iconfont iconjiantou"></i>
@@ -46,16 +46,16 @@
         <!--   演出时长   -->
         <div class="y_project_time">
           <div class="y_time_info">
-            <span class="y_time_info_data">{{projectData.showTime}}</span>
-            <span class="y_time_info_length">演出时长约120分钟（以现场为准）</span>
+            <span class="y_time_info_data">{{projectData.detail.detailViewComponentMap.item.staticData.itemBase.showTime}}</span>
+            <span class="y_time_info_length">{{projectData.detail.detailViewComponentMap.item.staticData.itemBase.showDuration}}</span>
           </div>
           <i class="y_notices_moreinfo iconfont iconjiantou"></i>
         </div>
         <!--   演出地点   -->
         <div class="y_project_address">
           <div class="y_address_info">
-            <span class="y_address_info_name">{{projectData.venueCity}} | {{projectData.venueName}}</span>
-            <span class="y_address_info_detail">新街口北大街74号</span>
+            <span class="y_address_info_name">{{projectData.detail.detailViewComponentMap.item.staticData.venue.venueCityName}} | {{projectData.detail.detailViewComponentMap.item.staticData.venue.venueName}}</span>
+            <span class="y_address_info_detail">{{projectData.detail.detailViewComponentMap.item.staticData.venue.venueAddr}}</span>
           </div>
           <div class="y_address_icon_container">
             <i class="y_address_icon iconfont icondizhi1"></i>
@@ -67,7 +67,7 @@
       <div class="y_project_rank">
         <div class="y_rank_container">
           <span class="y_rank_icon">榜</span>
-          <span class="y_rank_info" v-if="projectData.rankingList">{{projectData.rankingList.title}}</span>
+          <span class="y_rank_info">{{projectData.detail.detailViewComponentMap.item.staticData.rankListVO.name}}NO.{{projectData.detail.detailViewComponentMap.item.staticData.rankListVO.type}}</span>
         </div>
         <i class="y_notices_moreinfo iconfont iconjiantou"></i>
       </div>
@@ -89,9 +89,9 @@
         </div>
         <!--  详情-->
         <div class="y_detail_info">
-          <img class="y_detail_ads_banner" src="https://img.alicdn.com/tfs/TB1EjBrphD1gK0jSZFsXXbldVXa-648-148.gif_600x600.jpg" alt="">
+<!--          <img class="y_detail_ads_banner" src="https://img.alicdn.com/tfs/TB1EjBrphD1gK0jSZFsXXbldVXa-648-148.gif_600x600.jpg" alt="">-->
           <p class="y_detail_info_title">品牌</p>
-          <div class="y_detail_info_brand">
+<!--          <div class="y_detail_info_brand">
             <div class="y_item_info_container">
               <div class="y_item_img">
                 <img src="//intercms.damai.cn/artist/pic/1554108643078/1554108643078-main.jpg">
@@ -105,74 +105,55 @@
               </div>
             </div>
             <i class="y_notices_moreinfo iconfont iconjiantou"></i>
-          </div>
+          </div>-->
           <p class="y_detail_info_title">演职人员</p>
-          <div class="y_detail_info_artist">
-            <div class="y_item_info_container">
-              <div class="y_item_img">
-                <img src="//intercms.damai.cn/artist/pic/1554108643078/1554108643078-main.jpg">
-              </div>
-              <div class="y_item_info">
-                <div class="y_item_title_container">
-                  <span class="y_item_title">德云社</span>
-                  <img src="https://gw.alicdn.com/tfs/TB1c4U2koT1gK0jSZFhXXaAtVXa-72-72.png" alt="">
+          <ul>
+            <li v-for="(artistsItem,index) in projectData.detail.detailViewComponentMap.item.dynamicExtData.artists"
+            :key="index">
+              <div  class="y_detail_info_artist">
+                <div class="y_item_info_container">
+                  <div class="y_item_img">
+                    <img :src="artistsItem.picUrl">
+                  </div>
+                  <div class="y_item_info">
+                    <div class="y_item_title_container">
+                      <span class="y_item_title">{{artistsItem.artistName}}</span>
+                      <img src="https://gw.alicdn.com/tfs/TB1c4U2koT1gK0jSZFhXXaAtVXa-72-72.png">
+                    </div>
+                    <p>{{artistsItem.archives}}</p>
+                  </div>
+                  <i class="y_notices_moreinfo iconfont iconjiantou"></i>
                 </div>
-                <p>北京相声大会 | 相声社团No1</p>
               </div>
-            </div>
-            <i class="y_notices_moreinfo iconfont iconjiantou"></i>
-          </div>
+
+
+            </li>
+          </ul>
+
           <p class="y_detail_info_title">演出介绍</p>
-          <div class="y_detail_info_tips_container">
-            <p class="y_detail_info_title">温馨提示:</p>
-            <p class="y_detail_info_Tips">本项目自2019年7月12日起需实名制购票，一票一证（一票一证指每张门票均需对应不同且首次使用的身份证号码）。无论同一订单购买单张或多张门票，如您提供的身份证信息已被用于其他购票渠道购买本项目门票，或出现多张门票重复使用同一身份证信息等任何违反一票一证制度的购买行为，大麦网将会在5个工作日内通过系统原路退回该订单下全部票款，不予出票。购票成功后，请携带购票时填写的身份证原件换取纸制门票入场。本项目不支持换票码取票。</p>
-            <p class="y_detail_info_title">换票地点:</p>
-            <p class="y_detail_info_Tips">大麦网门店：北京市东城区东中街32号楼七层大麦自助换票机 ，工作时间周一至周日：9：00-18：00。</p>
-            <p class="y_detail_info_title">售票时间:</p>
-            <p class="y_detail_info_Tips">每周五上午10：00售下周演出门票</p>
-            <p class="y_detail_info_title">演出时间及内容:</p>
-            <p class="y_detail_info_Tips">每周一至周日：相声专场</p>
-            <p class="y_detail_info_Tips">每周六下午14：30：评书专场</p>
-            <p class="y_detail_info_title">三庆园简介</p>
-            <p class="y_detail_info_Tips">北京三庆园，又名“三庆戏院”，位于前门外大栅栏街18号，是一家以京剧演出为主的老戏园子。据1842年版《梦华琐簿》记述“今日三庆园,乾隆年间宴乐居也。”四大徽班之一的三庆班将此作为首选的主要场所，(1796)更名为三庆园。名家荟萃，生意兴旺，与广德楼、广和楼、庆乐园、同乐轩、庆和园、中和园一同被誉为“京城七大戏楼”， 距今已有220年历史，曾见证了京剧从萌芽、形成、成熟到高峰的全过程。 </p>
-            <p class="y_detail_info_title">购票须知:</p>
-            <p class="y_detail_info_Tips">1、本场馆一律对桌对号入座。</p>
-            <p class="y_detail_info_Tips">2、1.2米以下儿童谢绝入场，1.2米以上儿童照章购票。</p>
-            <p class="y_detail_info_title">演出节目单:</p>
-            <p class="y_detail_info_Tips">德云社相声演出八队</p>
-            <p class="y_detail_info_Tips">三庆园剧场</p>
-            <p class="y_detail_info_Tips">2019年12月24日（星期二）晚场</p>
-            <p class="y_detail_info_Tips">1孙经纬 邓福均（助演）</p>
-            <p class="y_detail_info_Tips">2李九天 董九力【论梦】</p>
-            <p class="y_detail_info_Tips">3董九涵 孙霄尧【偷论】</p>
-            <p class="y_detail_info_Tips">4李九春 韩鹤晓【朱夫子】</p>
-            <p class="y_detail_info_Tips">5姬鹤武 王鹤江【相面】</p>
-            <p class="y_detail_info_Tips">6董九力 李九天【汾河湾】</p>
+          <div class="y_detail_info_tips_container" v-html="projectData.detail.detailViewComponentMap.item.staticData.itemExtendInfo.itemExtend">
+            {{projectData.detail.detailViewComponentMap.item.staticData.itemExtendInfo.itemExtend}}
           </div>
         </div>
         <div class="y_detail_comment">
 
         </div>
         <div class="y_detail_notice">
-          <p class="y_detail_info_title">购票须知</p>
-          <div class="y_detail_info_tips_container">
-            <p class="y_detail_info_title">限购规则</p>
-            <p class="y_detail_info_Tips">每笔订单最多购买2张、每个用户最多购买2张。</p>
-            <p class="y_detail_info_title">实名购票规则</p>
-            <p class="y_detail_info_Tips">一个证件每个场次只能买一张票；证件支持：身份证，本演出场所禁止携带饮料、食品；禁止录音、录像；拍照时禁用闪光灯，请您注意现场工作人员的提示，予以配合</p>
-            <p class="y_detail_info_title">优惠券使用规则</p>
-            <p class="y_detail_info_Tips">本项目不支持除大麦网VIP会员优惠券及指定膨胀金以外的其他优惠券购票，敬请理解</p>
-          </div>
-          <p class="y_bottom_line"></p>
-          <p class="y_detail_info_title">观演须知</p>
-          <div class="y_detail_info_tips_container">
-            <p class="y_detail_info_title">入场时间</p>
-            <p class="y_detail_info_Tips">演出前约30分钟</p>
-            <p class="y_detail_info_title">禁止携带物品</p>
-            <p class="y_detail_info_Tips">由于安保和版权的原因，本演出场所禁止携带饮料、食品；禁止录音、录像；拍照时禁用闪光灯，请您注意现场工作人员的提示，予以配合</p>
-            <p class="y_detail_info_title">寄存说明</p>
-            <p class="y_detail_info_Tips">无寄存处，请自行保管携带物品</p>
-          </div>
+          <ul>
+            <li v-for="(noticeList,index) in projectData.detail.detailViewComponentMap.item.staticData.noticeMatter.noticeList"
+            :key="index">
+              <p class="y_bottom_line"></p>
+              <p class="y_detail_info_title">{{noticeList.noteTitle}}</p>
+              <div class="y_detail_info_tips_container">
+                <ul>
+                  <li v-for="(noticeItem,index) in noticeList.ticketNoteList" :key="index">
+                    <p class="y_detail_info_title">{{noticeItem.title}}</p>
+                    <p class="y_detail_info_Tips">{{noticeItem.content}}</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
         </div>
         <div class="y_detail_suggestion"></div>
       </div>
@@ -194,11 +175,45 @@
     </div>
   </div>
 
+
+
+<!--  <div style=\"clear: both;>
+    <div style=\"clear: both;\">
+      <span style=\"font-size: 18px; font-weight: bold;\">配送公告</span>
+    </div>
+    <div style=\"clear: both;\">
+      <span>【广州】202020当我们谈论爱情-梁静茹世界巡回演唱会广州站，现已正式开票，麦麦正在加紧处理订单，门票自12月30日起陆续发出，请注意查收。</span>
+    </div>
+    <div style=\"clear: both;\">
+      <span><br></span>
+    </div>
+    <div style=\"clear: both;\">
+      <span style=\"font-size: 18px; font-weight: bold;\">演出介绍</span>
+    </div>
+    <div style=\"clear: both;\">202020&nbsp;当我们谈论爱情&nbsp;<br></div>
+    <div style=\"clear: both;\">When&nbsp;we&nbsp;talk&nbsp;about&nbsp;love&nbsp;<br></div>
+    <div style=\"clear: both;\"><br></div>
+    <div style=\"clear: both;\">「情歌天后-梁静茹-情歌本格派」&nbsp;<br></div>
+    <div style=\"clear: both;\">20th&nbsp;Anniversary&nbsp;The&nbsp;world&nbsp;tour&nbsp;<br></div>
+    <div style=\"clear: both;\"><br></div><div style=\"clear: both;\">你和谁擦肩而过<br></div>
+    <div style=\"clear: both;\">你和谁又重逢相会<br></div><div style=\"clear: both;\"><br></div>
+    <div style=\"clear: both;\">「梁静茹&nbsp;X&nbsp;梁静茹20周年世界巡回演唱会」&nbsp;<br></div>
+    <div style=\"clear: both;\"><br></div>
+    <div style=\"clear: both;\">在爱里&nbsp;幸福与遗憾，热恋与失去，&nbsp;<br></div>
+    <div style=\"clear: both;\">在情歌里&nbsp;当我们谈论爱情，拾获爱情</div>
+    <div style=\"clear: both;\"><br></div>
+    <div style=\"clear: both;\"></div>
+  </div>
+  <div style=\"clear: both;\">
+    <img src=\"https://img.alicdn.com/imgextra/i4/2251059038/O1CN01kOMxlM2GdSDdKg1Xc_!!2251059038.jpg\" width=\"600\" height=\"883/\" style=\"vertical-align: bottom;\"></div>
+  <div style=\"clear: both;\"></div>-->
+
+
+
 </template>
 
 <script>
-  import {reqBrand} from "../../api";
-
+  import {reqBrand,reqDetail} from "../../api"
   export default {
     data(){
       return{
@@ -208,8 +223,8 @@
 
     async mounted() {
       let id = this.$route.params.index
-      let list = await reqBrand()
-      this.projectData = list.data.performanceMore.find((item,index)=>item.id==id)
+      let list = await reqDetail()
+      this.projectData = list.data.find((item,index)=>item.id==id)
     }
   }
 
@@ -513,7 +528,7 @@
           .y_item_info_container
             display flex
             flex-direction row
-            /*align-items center*/
+            align-items center
             .y_item_img
               vertical-align middle
               img
@@ -537,7 +552,18 @@
 
         // 温馨提示
         .y_detail_info_tips_container
+          width 100%
           padding-bottom 10px
+          color #888
+          >div
+            >img
+              width 100%
+              height 100%
+            >div
+              >span
+                font-weight normal
+                font-size 14px
+
           .y_detail_info_title
             font-weight normal
             font-size 14px

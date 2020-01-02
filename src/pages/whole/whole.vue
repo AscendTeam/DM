@@ -39,7 +39,7 @@ import Brand from './brand/brand'
 
 <style lang="stylus" scoped>
   .wholeComponent
-    height 40px
+    // height 40px
     width 100%
     // background-color #eee
     .C-router

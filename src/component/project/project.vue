@@ -444,7 +444,6 @@
       /*详情*/
       .y_detail_info
         margin-bottom 10px
-        background red
         padding 0 20px
         background white
         // 广告banner
@@ -538,7 +537,6 @@
       /*须知*/
       .y_detail_notice
         margin-bottom 10px
-        background red
         padding 0 20px
         background white
         .y_bottom_line

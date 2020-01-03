@@ -8,8 +8,12 @@
 <script type="text/ecmascript-6">
 import FooterGuide from './component/footerGuide/footerGuide'
   export default {
+    async mounted(){
+      this.$store.dispatch('autoLogin')
+    },
+    
     components:{
-      FooterGuide
+      FooterGuide,
     }
   }
 </script>

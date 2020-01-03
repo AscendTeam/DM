@@ -1,7 +1,7 @@
 <template>
   <div id="J_search">
     <div class="search_bar">
-      <input type="text" placeholder="搜索明星、演出比赛、场馆" v-model="search"  @change="show()">
+      <input type="text" placeholder="搜索明星、演出比赛、场馆" v-model="search"  @change="show()"/>
       <i class="iconfont iconsearch1"></i>
       <img src="./images/clear.png" alt="" v-show="search" @click="clearInput">
       <span>取消</span>
@@ -29,6 +29,7 @@
 
 <script type="text/ecmascript-6">
   export default {
+
     data(){
      return{
         search:'',
@@ -49,6 +50,7 @@
       show(){
         this.Show=false
         this.$router.push('/search/itemCard')
+        
       },
       },
       mounted(){
@@ -61,6 +63,14 @@
         isHide(){
         if(this.search=''){
           this.$router.replace('/search')
+        }
+      }
+    },
+    watch:{
+      search(){
+        if(this.search ===''){
+          this.$router.replace('/search')
+          this.Show = true
         }
       }
     }

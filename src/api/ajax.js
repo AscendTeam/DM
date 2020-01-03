@@ -5,8 +5,9 @@
 //引入axios
 import axios from 'axios'
 import qs from 'qs'
-import store from '../store'
-// import router from '../router'
+// import { Indicator, Toast, MessageBox } from 'mint-ui'
+import store from '../vuex/store'
+import router from '../router'
 
 const instance = axios.create({
   baseURL:'/api',// 让代理服务器转发请求4000
@@ -54,11 +55,11 @@ instance.interceptors.response.use(
     if (!reqponse) {
       //没有发请求
       //判断是否在登录页面
-      if (path!=='/login') {
-        router.replace('/login')
-        // Toast(error.message)
-        alert(error.message)
-      }
+      // if (path!=='/login') {
+      //   router.replace('/login')
+      // //   // Toast(error.message)
+      // //   alert(error.message)
+      // }
     }else{//发请求了
       const status=error.reqponse.status
       if (status===401) {
@@ -67,7 +68,7 @@ instance.interceptors.response.use(
         //清除token
         store.dispatch('logot')
         router.replace('/login')
-        
+
       }
       }else if(status==='404'){
         MessageBox('提示','访问资源不存在')
@@ -76,7 +77,7 @@ instance.interceptors.response.use(
         alert('请求出错'+error.message)
       }
     }
-    alert('请求出错'+error.message)
+    // alert('请求出错'+error.message)
     return new Promise(()=>{})
   }
   )

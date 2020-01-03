@@ -118,13 +118,20 @@
         let names = ['name','info']
         const success = await this.$validator.validateAll(names)
         console.log(success)
+        let result
         if(success){
-          this.$router.replace({path: '/search'})
-        }else if (!success) {
-          this.$router.replace({path: '/login'})
-        }{
-          
-        }       
+          let {name,info} = this
+          result = await this.$API.reqPwdLogin({name,info})
+        }
+        if (result.code===0) {
+            const user = result.data
+            // 将user保存到vuex的state
+            this.$store.dispatch('saveUser', user) // 将user和token保存到state, 将token保存local
+
+            // 跳转到个人中心
+            this.$router.replace({path: '/profile'})
+          }
+          // console.log(result)
       }
     },
     computed:{
@@ -208,6 +215,7 @@
               height 48px
               font-size 14px
               padding-left 57px
+              margin-left 46px
               box-sizing border-box
               // border-bottom 2px solid red
               border-top none

@@ -42,7 +42,7 @@ export default {
  delete user.token
 
   //将user存入state
-  commit(RECEIVE_USER,user)
+  commit(RECEIVE_USER,{user})
   //将token存入state
   commit(RECEIVE_TOKEN,{token})
 },
@@ -58,6 +58,8 @@ async autoLogin({commit,state}){
      }
  }
 },
+
+
    logout ({commit}){
      localStorage.removeItem('token_key')
      commit(RESET_USER)

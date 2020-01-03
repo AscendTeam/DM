@@ -187,11 +187,7 @@
 
 <script>
   import {reqBrand,reqDetail} from "../../api"
-  import stickySlot from '../stickySlot/stickySlot'
   export default {
-    components: {
-      stickySlot
-    },
     data(){
       return{
         projectData:{},

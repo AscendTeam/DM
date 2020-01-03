@@ -15,7 +15,7 @@
       <div class="y_header_project_info">
         <img :src="projectData.imgs">
         <div class="y_project_info_container">
-          <div class="y_project_title">
+          <div class="y_project_title" v-if="projectData.title">
             <p class="y_title">【{{projectData.cityTour[0].city}}】{{projectData.title}}</p>
             <span class="y_label y_super_label">超平日</span>
             <span class="y_label">总票代</span>
@@ -44,7 +44,7 @@
         </div>
         <!--   演出时长   -->
         <div class="y_project_time">
-          <div class="y_time_info">
+          <div class="y_time_info" v-if="projectData.venueName">
             <span class="y_time_info_data">{{projectData.cityTour[0].times}}</span>
             <span class="y_time_info_length">演出时长约120分钟（以现场为准）</span>
           </div>
@@ -52,7 +52,7 @@
         </div>
         <!--   演出地点   -->
         <div class="y_project_address">
-          <div class="y_address_info">
+          <div class="y_address_info" v-if="projectData.venueName">
             <span class="y_address_info_name">{{projectData.cityTour[0].city}} | {{projectData.venueName}}</span>
             <span class="y_address_info_detail">新街口北大街74号</span>
           </div>

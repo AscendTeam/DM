@@ -18,14 +18,17 @@ import ItemCard from '../pages/Search/ItemCard/ItemCard.vue'
 export default [
   {
     path: '',
-    redirect: '/home'
+    redirect: '/home',
+    meta: {
+      isShowFooter: true
+    }
   },
   {
     path: '/home',//首页
     component: Home,
-     meta: {
+    meta: {
       isShowFooter: true
-    },
+    }
   },
   {
     path: '/whole',//全部
@@ -36,49 +39,61 @@ export default [
     children: [
       {
         path: "",
-        redirect: 'coffee'
+        redirect: 'coffee',
+        meta: {
+          isShowFooter: true
+        },
       },
       {
         path: 'coffee',
-        component: WholeCoffee
+        component: WholeCoffee,
+        meta: {
+          isShowFooter: true
+        },
       },
       {
         path: 'brand',
-        component: WholeBrand
+        component: WholeBrand,
+        meta: {
+          isShowFooter: true
+        },
       }
     ]
   },
   {
-    path:'/discover',//发现
-    component:Discover,
+    path: '/discover',//发现
+    component: Discover,
     meta: {
       isShowFooter: true
     }
   },
   {
-    path:'/wallet',//票夹
-    component:Wallet,
+    path: '/wallet',//票夹
+    component: Wallet,
     meta: {
       isShowFooter: true
     }
   },
   {
-    path:'/profile',//我的
-    component:Profile,
+    path: '/profile',//我的
+    component: Profile,
     meta: {
       isShowFooter: true
     }
   },
   {
     path:'/ticket',//跳转抢票站页面
-    component:Ticket
+    component:Ticket,
+    meta: {
+      isShowFooter: true
+    }
   },
   {
-    // Project页面 临时放置
+    // Project页面
     path: '/project/:index',
-    component: Project
+    component: Project,
   },
-     {
+  {
     // 大咖作品详情页面
     path: '/worksdetail/:index',
     component: WorksDetail

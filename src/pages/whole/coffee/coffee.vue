@@ -83,7 +83,6 @@ export default {
       // 实现轮播滑动
       this.mySwiper = new Swiper(".swiper-container", {
         on:{
-          // 高亮
             slideChangeTransitionEnd: (event)=> {
               console.log(this.mySwiper.activeIndex);
               this.swiperIndex = this.mySwiper.activeIndex
@@ -104,18 +103,19 @@ export default {
         },
 
       });
-      
-      
-    },
-
-    // 头部滑动
-    gainSscroll(){
       this.bScrol = new BScroll(this.$refs.topScroll, {
         scrollX: true,
         bounce: false,
         click:true,
         probeType: 1
       })
+      // 给头部列表绑定监听
+    },
+
+    // 头部滑动
+    gainSscroll(){
+      
+
     },
 
     // 点击切换到指定swiper页

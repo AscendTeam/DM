@@ -1,6 +1,7 @@
 import Home from '../pages/home/home.vue'
 import Whole from '../pages/whole/whole.vue'
 import WholeCoffee from '../pages/whole/coffee/coffee'
+import WorksDetail from '../component/worksDetail/worksDetail'
 import WholeBrand from '../pages/whole/brand/brand'
 
 import Discover from '../pages/discover/discover.vue'
@@ -15,20 +16,16 @@ import Login from '../pages/Login/Login.vue'
 import Search from '../pages/Search/Search.vue'
 import ItemCard from '../pages/Search/ItemCard/ItemCard.vue'
 export default [
-    {
+  {
     path: '',
     redirect: '/home'
-    },
-  {
-    path: '/home',//首页
-    component: Home,
-    meta: {
-      isShowFooter: true
-    },
   },
   {
     path: '/home',//首页
-    component: Home
+    component: Home,
+     meta: {
+      isShowFooter: true
+    },
   },
   {
     path: '/whole',//全部
@@ -81,6 +78,12 @@ export default [
     path: '/project/:index',
     component: Project
   },
+     {
+    // 大咖作品详情页面
+    path: '/worksdetail/:index',
+    component: WorksDetail
+  },
+
   {
     path:'/login',//跳转抢票站页面
     component:Login
@@ -94,6 +97,6 @@ export default [
         component: ItemCard
       },
     ]
-  },
-  
+  }
 ]
+

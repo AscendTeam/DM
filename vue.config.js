@@ -13,9 +13,19 @@ module.exports={
   }
 },
   // no-console:false,
+  css: { // 添加postcss配置
+    loaderOptions: {
+      postcss: {
+        plugins: [
+          postcss
+        ]
+      }
+    }
+  },
   lintOnSave: false,
   devServer:{
     open:true,
+    disableHostCheck: true,
     proxy:{
       '/api':{
         target:'http://localhost:3000',//转发目标地址

@@ -1,4 +1,4 @@
-/* 
+/*
 vuex最核心的管理对象store
 */
 import Vue from 'vue'
@@ -7,7 +7,9 @@ import Vuex from 'vuex'
 import mutations from './mutations'
 import actions from './actions'
 import getters from './getters'
+import msite from './modules/msite'
 import user from './modules/user'
+import whole from './modules/whole'
 
 Vue.use(Vuex)
 
@@ -17,15 +19,8 @@ export default new Vuex.Store({
   actions, // 总的actions, 它内部看到的就是总的state
   getters,
   modules: {
+    msite,
     user,
+    whole
   }
 })
-
-/* 
-总的state的结构:
-{
-  msite: {},
-  user: {},
-  shop: {}
-}
-*/

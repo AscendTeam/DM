@@ -1,5 +1,6 @@
 <template>
-  <div class="C-cardComponent" @click="details">
+  <div class="C-cardComponent" >
+    <div class="floatss" name="key" >{{starItem.id}}</div>
     <div class="C-header">
       <img :src="starItem.avatar" alt="">
       <div class="C-userConter">
@@ -12,7 +13,8 @@
             {{starItem.show}}场在售演出|{{starItem.fans}}万粉丝
           </p>
       </div>
-      <button class="concern">关注</button>
+      <!-- <button class="concern">关注</button> -->
+      <Attention class="starBtn" :starItem="starItem" />
     </div>
     <div class="C-contentImg">
       <img class="leftImg" :src="starItem.imgs" alt="">
@@ -31,14 +33,12 @@
 </template>
 
 <script type="text/ecmascript-6">
+import Attention from '../attention/attention'
   export default {
     props:["starItem"],
-    methods:{
-      details(){
-        alert(1)
-        this.$router.push()
-      }
-    }
+    components:{
+      Attention,
+    },
     // computed:{
     //   cityCount(){
     //     let text =""
@@ -59,6 +59,15 @@
     // background-color #555
     padding 16px 4%
     border-bottom 1px solid #eee
+    position relative
+    overflow hidden
+    .floatss
+      position absolute
+      width 100%
+      height 400px
+      // background-color red
+      z-index 2
+      color transparent
     .C-header
       display flex
       position relative
@@ -67,8 +76,6 @@
         height 48px
         border-radius 50%
         vertical-align middle
-        background-color red
-
       .C-userConter
         display inline-block
         vertical-align middle
@@ -89,29 +96,28 @@
         &>p
           font-size 12px
           color #aaa
-      .concern
+      .starBtn
         position absolute
         right 0
         top 6px
-        height 24px
-        width 50px
-        font-size 12px
-        border-radius 12px
-        color #fff
-        background-color #FF1268
-        border none 
+        z-index 3
+      //   height 24px
+      //   width 50px
+      //   font-size 12px
+      //   border-radius 12px
+      //   color #fff
+      //   background-color #FF1268
+      //   border none 
     .C-contentImg
       padding-top 10px
       .leftImg
         width 30%
         height 140px
-        background-color red
         border-radius 5px
         margin-right 2%
       .rightImg
         width 68%
         height 140px
-        background-color red
         border-radius 5px
     .C-bottom
       padding 14px 0

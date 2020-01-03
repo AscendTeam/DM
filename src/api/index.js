@@ -6,10 +6,10 @@ import ajax from './ajax'
 // export const req*** = ()=>ajax('/****')
 //获取明星评论
   // export const reqCircle = ()=>ajax('http://localhost:3000/getCircle')
-  export const reqCircle = ()=>ajax('/getCircle')
+  export const reqCircle = ()=>ajax('/getcircle')
 //获取明星评论
   // export const reqStar = ()=>ajax('http://localhost:3000/getStar')
-  export const reqStar = ()=>ajax('/getStar')
+  export const reqStar = ()=>ajax('/getstar')
 // 获取brand数据
 //export const reqBrand = ()=>ajax('/circle/dys')
 export const reqBrand = ()=>ajax('/circle/dys')

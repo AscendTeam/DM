@@ -50,7 +50,10 @@
       show(){
         this.Show=false
         this.$router.push('/search/itemCard')
-        
+        if(this.search === ''){
+          this.$router.replace('/search')
+          this.Show=true
+        }
       },
       },
       mounted(){

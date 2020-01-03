@@ -49,7 +49,7 @@
           font-size 18px
           font-weight bold
           line-height 1.4em
-          color gray
+          color black
         .y_label
           display inline-block
           margin 6px 2px
@@ -57,7 +57,7 @@
           border-radius 10px;
           border 1px solid white
           font-size 12px;
-          color gray
+          color black
           &.y_super_label
             padding 3px 8px
             font-weight bold
@@ -68,7 +68,8 @@
         padding-top 5px
         font-size 16px
         font-weight bold
-        color gray
+        color black
+        color black
         .price
           font-size 13px
 

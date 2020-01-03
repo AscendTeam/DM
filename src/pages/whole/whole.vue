@@ -26,7 +26,7 @@
 
 <style lang="stylus" type="text/stylus" scoped>
   .wholeComponent
-    height 40px
+    // height 40px
     width 100%
     // background-color #eee
     .C-router
@@ -36,12 +36,11 @@
         color #aaa
         padding 0 20px
         text-align center
-        font-size 16px
+        font-size 14px
         line-height 40px
         &.active
           color #000
-          font-size 20px
-          font-weight bold
+          font-size 18px
     .C-search
       position absolute
       font-size 20px

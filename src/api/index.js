@@ -13,6 +13,10 @@ import ajax from './ajax'
 // 获取brand数据
 //export const reqBrand = ()=>ajax('/circle/dys')
 export const reqBrand = ()=>ajax('/circle/dys')
+
+// 详情页面数据
+export const reqDetail = () => ajax('/getdetail')
+
 //获取token
 export const reqPwdLogin = ({name, info}) => ajax.post('/login_pwd', {name,info})
 //自动登录

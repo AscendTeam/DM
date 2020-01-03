@@ -31,11 +31,9 @@
         <!-- 轮播图 -->
           <div class="swiper-container">
             <div class="swiper-wrapper">
-              <div class="swiper-slide"><img  src="./images/01.jpg" alt=""></div>  
-              <div class="swiper-slide"><img  src="./images/2.jpg" alt=""></div>
-              <div class="swiper-slide"><img  src="./images/3.jpg" alt=""></div>
-              <div class="swiper-slide"><img  src="./images/4.jpg" alt=""></div>
-              <div class="swiper-slide"><img  src="./images/5.jpg" alt=""></div> 
+              <div class="swiper-slide" v-for="(item,index) in swiper" :key="index">
+                <img :src="item" alt="">
+              </div>   
             </div>  
           <!-- 小圆点 -->
           <div class="swiper-pagination"></div>
@@ -85,16 +83,23 @@
             </li>
           </ul>
         </div>
+        <!-- 抢票播报站 -->
+        <div>
+          <ShakeDown/>
+        </div>
         <!-- 菜单轮播 -->
         <p class="w-title">必看排行榜</p>
         <div class="scroll-container">
           <HomeScroll/>
         </div>
+        <div>
+          <MenuList/>
+        </div>
       </div>
+       
       </div>
-    </div>
-  </div>  
-
+    </div> 
+  </div>
 </template>
 
 <script type="text/ecmascript-6">
@@ -102,115 +107,133 @@
   import "swiper/css/swiper.css"
   import BScroll from 'better-scroll'
   import HomeScroll from '../../component/HomeSrcoll/HomeScroll'
+  import ShakeDown from '../../component/Shakedown/Shakedown'
+  import MenuList from '../../component/MenuList/MenuList'
+  import { reqSwiper } from "../../api";
+import { watch } from 'fs'
   export default{
    components:{
-     HomeScroll
+     HomeScroll,
+     ShakeDown,
+     MenuList
    },
-   mounted(){
-     new BScroll(this.$refs.fix,{scrollY:true,bounce:false})
-     new Swiper('.swiper-container',{
-     loop: true,
-     autoplay:true, 
-      pagination:{
-        el: '.swiper-pagination'
-      }
-    })
+   data(){
+     return{
+      swiper:[],
+     }
+   },
+   async mounted(){
+     let data = await reqSwiper();
+     if (data.code == 0) {
+     this.swiper =data.data.swiperImg;
+     console.log(this.swiper)
+    }
+   },
+   watch:{
+     swiper(){
+       this.$nextTick(()=>{
+          new BScroll(this.$refs.fix,{scrollY:true,bounce:false}),
+          new Swiper('.swiper-container',{
+          loop: true,
+          autoplay:true, 
+          pagination:{
+            el: '.swiper-pagination'
+          }
+        })
+       })
+     }
    }
 
-   }
+  }   
 </script>
-
 <style scoped lang="stylus" rel="stylesheet/stylus">
-.w-all-center
-  background #8DC26F
-  color white
-  .w-space
-    height 10px     
-  .w-home-top
+  .w-all-center
+    background #8DC26F
+    color white
+    .w-space
+      height 10px     
+    .w-home-top
+      display flex
+      justify-content center
+      height 20px
+      line-height 20px
+      .w-home-top-city 
+        vertical-align middle
+        font-size 18px
+        .icon-top-city
+          font-size 18px
+          vertical-align middle
+      .w-search-ladel  
+        justify-content center 
+        border 1px solid 
+        height 20px
+        border-radius 15px 15px 15px 0
+        font-size 15px
+        width 220px
+        line-height 20px
+        margin 0 10px
+        background white
+        .iconsearch
+          margin auto 10px
+          color black 
+        .searchtext 
+          color #999999
+  .iconuser
+    font-size 20px
+    margin-top 5px
+    margin-left 10px
+  .iconuser1
+    font-size 20px
+    margin-top 5px 
+  .div3
+    height 30px   
+  .w-header
+    height 572px
+    overflow hidden  
+  .navbar   
     display flex
     justify-content center
-    height 20px
-    line-height 20px
-    .w-home-top-city 
-      vertical-align middle
-      font-size 18px
-      .icon-top-city
-        font-size 18px
-        vertical-align middle
-    .w-search-ladel  
+    margin-top 10px
+    .navlist 
+      display flex
       justify-content center 
-      border 1px solid 
-      height 20px
-      border-radius 15px 15px 15px 0
-      font-size 15px
-      width 220px
-      line-height 20px
-      margin 0 10px
-      background white
-      .iconsearch
-        margin auto 10px
-        color black 
-      .searchtext 
-        color #999999
-.iconuser
-  font-size 20px
-  margin-top 5px
-  margin-left 10px
-.iconuser1
-  font-size 20px
-  margin-top 5px 
-.div3
-  height 30px   
-.w-header
-  height 572px
-  overflow hidden  
-.navbar   
-  display flex
-  justify-content center
-  margin-top 10px
-  .navlist 
-    display flex
-    justify-content center 
-    li
-      font-size 15px
-      display block
-      padding 0 5px 
-.swiper-container
-  width 100%
-  margin-top 15px
-  img 
-    width 335px
-    height 160px
-    display block
-    border-radius 15px 
-    margin auto 
-.w-nav-list
-  margin-top 15px 
-  ul 
-    display flex
-    flex-wrap wrap 
-    white-space pre-wrap
-    justify-content space-around
-    li
-      display block
-      padding 10px
-      justify-content space-around
-      i 
-        font-size 30px
-        display inline-block
-        margin 0 10px
-      span 
+      li
+        font-size 15px
         display block
-        color black 
-        margin 2px 4px 
-.w-title 
-  font-size 20px
-  color black 
-  font-weight bold 
-  padding 15px
-.scroll-container
-  overflow hidden       
+        padding 0 5px 
+  .swiper-container
+    width 100%
+    margin-top 15px
+    img 
+      width 335px
+      height 160px
+      display block
+      border-radius 15px 
+      margin auto 
+  .w-nav-list
+    margin-top 15px 
+    ul 
+      display flex
+      flex-wrap wrap 
+      white-space pre-wrap
+      justify-content space-around
+      li
+        display block
+        padding 10px
+        justify-content space-around
+        i 
+          font-size 30px
+          display inline-block
+          margin 0 10px
+        span 
+          display block
+          color black 
+          margin 2px 4px 
+  .w-title 
+    font-size 20px
+    color black 
+    font-weight bold 
+    padding 15px
+  .scroll-container
+    overflow hidden       
 </style>
-
-
-  

@@ -4,9 +4,9 @@
 
 //引入axios
 import axios from 'axios'
-import qs from 'qs'
+// import qs from 'qs'
 // import { Indicator, Toast, MessageBox } from 'mint-ui'
-import store from '../store'
+// import store from '../store'
 // import router from '../router'
 
 const instance = axios.create({
@@ -78,7 +78,7 @@ instance.interceptors.response.use(
         alert('请求出错'+error.message)
       }
     } */
-    alert('请求出错'+error.message)
+    //alert('请求出错'+error.message)
     return new Promise(()=>{})
   }
   )

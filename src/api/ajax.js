@@ -6,8 +6,8 @@
 import axios from 'axios'
 import qs from 'qs'
 // import { Indicator, Toast, MessageBox } from 'mint-ui'
-import store from '../store'
-// import router from '../router'
+import store from '../vuex/store'
+import router from '../router'
 
 const instance = axios.create({
   baseURL:'/api',// 让代理服务器转发请求4000
@@ -16,23 +16,23 @@ const instance = axios.create({
 //添加请求拦截器
 instance.interceptors.request.use((config)=>{
   //对请求体参数进行urlencode处理, 而不使用默认的json方式(后台接口不支持)
-  // const data=config.data
-  // if (data instanceof Object) {
-  //   config.data=qs.stringify(data)
-  // }
+  const data=config.data
+  if (data instanceof Object) {
+    config.data=qs.stringify(data)
+  }
   // 获取token
-  // const token = store.state.user.token
+  const token = store.state.user.token
   //通过请求头携带token数据
-  // if (token) {//有进
+  if (token) {//有进
     //在请求头添加token
-    // config.headers.authorization=token
-  // }else{//无token
+    config.headers.authorization=token
+  }else{//无token
     //没有token但请求需要token 根据自己设计的唯一标识确定
-    // const unique = config.headers.unique
-    // if (unique) {
-      // throw new Error('请登录...')
-    // }
-  // }
+    const unique = config.headers.unique
+    if (unique) {
+      throw new Error('请登录...')
+    }
+  }
   return config
 })
 
@@ -50,16 +50,16 @@ instance.interceptors.response.use(
     // 三  发送请求了 通肯过期了 返回401
 
     //判断有没有发请求
-/*     const reqponse=error.reqponse
+    const reqponse=error.reqponse
     const path = router.currentRoute.path
     if (!reqponse) {
       //没有发请求
       //判断是否在登录页面
-      if (path!=='/login') {
-        router.replace('/login')
-        // Toast(error.message)
-        alert(error.message)
-      }
+      // if (path!=='/login') {
+      //   router.replace('/login')
+      // //   // Toast(error.message)
+      // //   alert(error.message)
+      // }
     }else{//发请求了
       const status=error.reqponse.status
       if (status===401) {
@@ -68,8 +68,7 @@ instance.interceptors.response.use(
         //清除token
         store.dispatch('logot')
         router.replace('/login')
-        // Toast(error.reqponse.data.message)
-        // alert(error.message)
+
       }
       }else if(status==='404'){
         MessageBox('提示','访问资源不存在')
@@ -77,8 +76,8 @@ instance.interceptors.response.use(
         //1. 统一处理请求异常
         alert('请求出错'+error.message)
       }
-    } */
-    alert('请求出错'+error.message)
+    }
+    // alert('请求出错'+error.message)
     return new Promise(()=>{})
   }
   )

@@ -1,4 +1,4 @@
-/* 
+/*
 vuex最核心的管理对象store
 */
 import Vue from 'vue'
@@ -9,7 +9,7 @@ import actions from './actions'
 import getters from './getters'
 import msite from './modules/msite'
 import user from './modules/user'
-import shop from './modules/shop'
+import whole from './modules/whole'
 
 Vue.use(Vuex)
 
@@ -21,15 +21,6 @@ export default new Vuex.Store({
   modules: {
     msite,
     user,
-    shop
+    whole
   }
 })
-
-/* 
-总的state的结构:
-{
-  msite: {},
-  user: {},
-  shop: {}
-}
-*/

@@ -29,5 +29,15 @@ import FooterGuide from './component/footerGuide/footerGuide'
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
+<<<<<<< HEAD
+.div
+  width 375px
+  height 400px
+  background red
+ 
+</style>
+
+=======
+>>>>>>> 983f7df05e7ea16c5ea85badedc7fc218619345d
 
 </style>

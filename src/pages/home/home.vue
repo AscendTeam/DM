@@ -1,170 +1,236 @@
 <template>
   <div>
-    <div class="shakedownContainer" >
-        <div class="head" @click="$router.push('/ticket')">
-          <h1>抢票播报站</h1>
-          <span class="s1">168万人想看德云社北京</span>
-          <span class="more"> > </span>
-      </div>
-      <div class="contentContainer">
-        <img class="qwe" src="./images/ly.jpg"/>
-        <div class="content">
-          <span class="s1">[北京]开心麻花爆笑舞台剧《鞠菊菊鞠菊菊</span>
-          <span class="s2">4387人想看</span>
-          <div class="pr">
-            <span class="price">￥80起</span>
-            <button>去抢票</button>
+      <div class="w-all-center">
+        <div class="w-space"></div>
+        <!-- 搜索 -->
+        <div class="w-home-top">
+          <div class="w-home-top-city">
+            <span class="w-home-top-cityname">北京</span>
+            <i class="iconfont icondown-copy icon-top-city"></i>
           </div>
+          <div class="w-search-ladel">
+            <i class="iconfont iconsearch1 iconsearch"></i>
+            <span class="searchtext">搜索明星</span>
+          </div>
+          <i class="iconfont iconrili iconuser1"></i>
+          <i class="iconfont iconduihua1 iconuser"></i>
+        </div>
+      <div class="div3"></div>
+      <div class="w-header" ref="fix">
+      <div class="wrapper w-search-fix">
+        <!-- 导航跳转 -->
+        <div class="navbar">
+          <ul class="navlist">
+            <li>证件信息</li>
+            <li>跨年精彩</li>
+            <li>放牛班的春天</li>
+            <li>黄义达</li>
+            <li>李荣浩</li>
+          </ul>
+        </div>
+        <!-- 轮播图 -->
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" v-for="(item,index) in swiper" :key="index">
+                <img :src="item" alt="">
+              </div>
+            </div>
+          <!-- 小圆点 -->
+          <div class="swiper-pagination"></div>
+          </div>
+        <!-- 节目列表 -->
+        <div class="w-nav-list" >
+          <ul>
+            <li>
+              <i class="iconfont iconshengdanshu"></i>
+              <span>演唱会</span>
+            </li>
+            <li>
+              <i class="iconfont iconshengdanjie-xingxing"></i>
+              <span>话剧歌剧</span>
+            </li>
+            <li>
+              <i class="iconfont iconshengdanjie-xueren"></i>
+              <span>音乐会</span>
+            </li>
+            <li>
+              <i class="iconfont iconshengdanjie-milu"></i>
+              <span>体育</span>
+            </li>
+            <li>
+              <i class="iconfont iconshengdanjie-huahuan"></i>
+              <span>曲艺杂坛</span>
+            </li>
+            <li>
+              <i class="iconfont iconshengdanjie-shoutao"></i>
+              <span>儿童亲子</span>
+            </li>
+            <li>
+              <i class="iconfont iconshengdanjie-shengdanwa"></i>
+              <span>展览休闲</span>
+            </li>
+            <li>
+              <i class="iconfont iconshengdanjie-lingdang"></i>
+              <span>舞蹈芭蕾</span>
+            </li>
+            <li>
+              <i class="iconfont iconshengdanjie1"></i>
+              <span>折扣专区</span>
+            </li>
+            <li>
+              <i class="iconfont iconshengdanjie"></i>
+              <span>全部</span>
+            </li>
+          </ul>
+        </div>
+        <!-- 抢票播报站 -->
+        <div>
+          <ShakeDown/>
+        </div>
+        <!-- 菜单轮播 -->
+        <p class="w-title">必看排行榜</p>
+        <div class="scroll-container">
+          <HomeScroll/>
+        </div>
+        <div>
+          <MenuList/>
         </div>
       </div>
-  </div>
-
-  <span class="for-you">为您推荐</span>
-   <div class="recommendContainer">
-    
-    <div class="recommendList">
-      <img src="//pimg.dmcdn.cn/perform/project/1803/180338_n.jpg?_t=1575366971613&x-oss-process=image/quality,q_60/format,webp" alt="">
-      <h2>[北京]开心麻花原创贺岁大戏《蒙娜丽莎的微笑》</h2>
-      <span class="s1">2020.01.01</span>
-      <span class="s2">￥80起</span>
+      </div>
     </div>
-     <div class="recommendList">
-      <img src="//pimg.dmcdn.cn/perform/project/1803/180338_n.jpg?_t=1575366971613&x-oss-process=image/quality,q_60/format,webp" alt="">
-      <h2>[北京]开心麻花原创贺岁大戏《蒙娜丽莎的微笑》</h2>
-      <span class="s1">2020.01.01</span>
-      <span class="s2">￥80起</span>
-    </div>
-     <div class="recommendList">
-      <img src="//pimg.dmcdn.cn/perform/project/1803/180338_n.jpg?_t=1575366971613&x-oss-process=image/quality,q_60/format,webp" alt="">
-      <h2>[北京]开心麻花原创贺岁大戏《蒙娜丽莎的微笑》</h2>
-      <span class="s1">2020.01.01</span>
-      <span class="s2">￥80起</span>
-    </div>
-     <div class="recommendList">
-      <img src="//pimg.dmcdn.cn/perform/project/1803/180338_n.jpg?_t=1575366971613&x-oss-process=image/quality,q_60/format,webp" alt="">
-      <h2>[北京]开心麻花原创贺岁大戏《蒙娜丽莎的微笑》</h2>
-      <span class="s1">2020.01.01</span>
-      <span class="s2">￥80起</span>
-    </div>
-     <div class="recommendList">
-      <img src="//pimg.dmcdn.cn/perform/project/1803/180338_n.jpg?_t=1575366971613&x-oss-process=image/quality,q_60/format,webp" alt="">
-      <h2>[北京]开心麻花原创贺岁大戏《蒙娜丽莎的微笑》</h2>
-      <span class="s1">2020.01.01</span>
-      <span class="s2">￥80起</span>
-    </div>
-    
-
-  </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-  export default {
+  import Swiper from 'swiper'
+  import "swiper/css/swiper.css"
+  import BScroll from 'better-scroll'
+  import HomeScroll from '../../component/HomeSrcoll/HomeScroll'
+  import ShakeDown from '../../component/Shakedown/Shakedown'
+  import MenuList from '../../component/MenuList/MenuList'
+  import { reqSwiper } from "../../api";
+  export default{
+   components:{
+     HomeScroll,
+     ShakeDown,
+     MenuList
+   },
+   data(){
+     return{
+      swiper:[],
+     }
+   },
+   async mounted(){
+     let data = await reqSwiper();
+     if (data.code == 0) {
+     this.swiper =data.data.swiperImg;
+    }
+   },
+   watch:{
+     swiper(){
+       this.$nextTick(()=>{
+          new BScroll(this.$refs.fix,{scrollY:true,bounce:false}),
+          new Swiper('.swiper-container',{
+          loop: true,
+          autoplay:true,
+          pagination:{
+            el: '.swiper-pagination'
+          }
+        })
+       })
+     }
+   }
+
   }
 </script>
-
-<style lang="stylus" scoped>
-   @import "../../common/stylus/mixins.styl"
-  .shakedownContainer
-    width 100%
-    height 100%
-    border-radius 10px
-    background-color #fff
-    .head
-      height 60px
+<style scoped lang="stylus" rel="stylesheet/stylus">
+  .w-all-center
+    background #8DC26F
+    color white
+    .w-space
+      height 10px
+    .w-home-top
       display flex
       justify-content center
-      border-bottom: 1px solid rgba(7, 17, 27, 0.1)
-      h1
-        height 60px
-        font-size 22px
-        line-height 60px
-        color red
-      .s1 
-        height 60px
-        line-height 60px
-        font-size 16px
-        padding 0 10px 
-      .more
-        font-size 20px
-        height 60px
-        line-height 60px
-        margin-left 20px
-    .contentContainer
-      display flex
-      padding-top 10px
-      .qwe
-        width 80px
-        height 80px
-        border-radius 13px
-        padding-right 10px
-      .content
-        height 80px
-
-        .s1
-          display block
-          font-weight bold
-          font-size 22px
-          width 300px
-          white-space nowrap
-          overflow hidden
-          text-overflow ellipsis
-        .s2 
-          display inline-block
-          margin 10px 0
-          font-size 16px
-          color #333
-          text-align left 
-          
-        .pr
-          height 30px
-          position relative
-          .price
-            color red
-            font-size 20px
-          button
-            background pink
-            color #fff 
-            border-radius 10px
-            position absolute
-            right 30px
-            bottom 8px
-  span 
-    font-size 24px         
-  .recommendContainer
-    width 100%
-    display flex
-    flex-wrap wrap
-
-    .recommendList
-      width 50%
-      display flex
-      flex-direction column
-      
-      img 
-        width 150px
-        height 150px
-        border-radius 8px
-      h2
-        font-size 20px
-        overflow:hidden;
-        display:-webkit-box
-        -webkit-box-orient:vertical
-        -webkit-line-clamp:2
-      span
-        margin-top 10px
-        &.s1
+      height 20px
+      line-height 20px
+      .w-home-top-city
+        vertical-align middle
+        font-size 18px
+        .icon-top-city
           font-size 18px
-          color #aaa
-      .s2
-        font-size 20px
-        color orange
-
-      
-
- 
-
- 
-
- 
+          vertical-align middle
+      .w-search-ladel
+        justify-content center
+        border 1px solid
+        height 20px
+        border-radius 15px 15px 15px 0
+        font-size 15px
+        width 220px
+        line-height 20px
+        margin 0 10px
+        background white
+        .iconsearch
+          margin auto 10px
+          color black
+        .searchtext
+          color #999999
+  .iconuser
+    font-size 20px
+    margin-top 5px
+    margin-left 10px
+  .iconuser1
+    font-size 20px
+    margin-top 5px
+  .div3
+    height 30px
+  .w-header
+    height 572px
+    overflow hidden
+  .navbar
+    display flex
+    justify-content center
+    margin-top 10px
+    .navlist
+      display flex
+      justify-content center
+      li
+        font-size 15px
+        display block
+        padding 0 5px
+  .swiper-container
+    width 100%
+    margin-top 15px
+    img
+      width 335px
+      height 160px
+      display block
+      border-radius 15px
+      margin auto
+  .w-nav-list
+    margin-top 15px
+    ul
+      display flex
+      flex-wrap wrap
+      white-space pre-wrap
+      justify-content space-around
+      li
+        display block
+        padding 10px
+        justify-content space-around
+        i
+          font-size 30px
+          display inline-block
+          margin 0 10px
+        span
+          display block
+          color black
+          margin 2px 4px
+  .w-title
+    font-size 20px
+    color black
+    font-weight bold
+    padding 15px
+  .scroll-container
+    overflow hidden
 </style>

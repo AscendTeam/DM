@@ -3,7 +3,7 @@
     <div class="panel-body">
       <router-view></router-view>
     </div>
-    <FooterGuide/>
+    <FooterGuide v-show="$route.meta.isShowFooter"/>
   </div>
 </template>
 
@@ -12,6 +12,14 @@
   export default {
     components:{
       FooterGuide,
+    },
+    data() {
+      return {
+        isProject: false
+      }
+    },
+    mounted() {
+      this.isProject = (this.$route.path.indexOf('/project/')===0)
     }
   }
 </script>
@@ -19,5 +27,6 @@
 <style scoped lang="stylus" rel="stylesheet/stylus">
 
 </style>
+
 
 

@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div v-if="projectData.detail">
     <div class="y_project_container">
       <div class="y_project_header">
         <!--    顶部返回\分享-->
         <div class="y_back-share_container">
-          <i class="back iconfont iconarrow-lift"></i>
+          <i class="back iconfont iconarrow-lift" @click="$router.go(-1)"></i>
           <div class="y_share_button">
             <span class="y_share_icon">￥</span>
             <span class="y_share_span">分享</span>
@@ -77,85 +77,89 @@
         <div class="y_project_detail_choice">
           <div class="y_detail_container">
             <ul>
-              <li class="y_detail_item_info detail_item_chiose">
+              <li class="y_detail_item_info" :class="{detail_item_chiose:choiceIndex===0}" @click="scrollTo(0)">
                 详情
-                <p class="y_detail_item_info detail_item_chiose"></p>
+                <p class="y_detail_item_info detail_item_chiose" v-if="choiceIndex===0"></p>
               </li>
-              <li class="y_detail_item_comment">评价</li>
-              <li class="y_detail_item_notice">须知</li>
-              <li class="y_detail_item_suggestion">推荐</li>
+              <li class="y_detail_item_notice" :class="{detail_item_chiose:choiceIndex===1}" @click="scrollTo(1)">
+                须知
+                <p class="y_detail_item_info detail_item_chiose" v-if="choiceIndex===1"></p>
+              </li>
+              <li class="y_detail_item_suggestion" :class="{detail_item_chiose:choiceIndex===2}" @click="scrollTo(2)">
+                推荐
+                <p class="y_detail_item_info detail_item_chiose" v-if="choiceIndex===2"></p>
+              </li>
             </ul>
           </div>
         </div>
         <!--  详情-->
-        <div class="y_detail_info">
-<!--          <img class="y_detail_ads_banner" src="https://img.alicdn.com/tfs/TB1EjBrphD1gK0jSZFsXXbldVXa-648-148.gif_600x600.jpg" alt="">-->
-          <p class="y_detail_info_title">品牌</p>
-<!--          <div class="y_detail_info_brand">
-            <div class="y_item_info_container">
-              <div class="y_item_img">
-                <img src="//intercms.damai.cn/artist/pic/1554108643078/1554108643078-main.jpg">
-              </div>
-              <div class="y_item_info">
-                <div class="y_item_title_container">
-                  <span class="y_item_title">德云社</span>
-                  <img src="https://gw.alicdn.com/tfs/TB1c4U2koT1gK0jSZFhXXaAtVXa-72-72.png" alt="">
+        <div class="y_detail">
+          <div class="y_detail_info" >
+  <!--          <img class="y_detail_ads_banner" src="https://img.alicdn.com/tfs/TB1EjBrphD1gK0jSZFsXXbldVXa-648-148.gif_600x600.jpg" alt="">-->
+  <!--          <p class="y_detail_info_title">品牌</p>-->
+  <!--          <div class="y_detail_info_brand">
+              <div class="y_item_info_container">
+                <div class="y_item_img">
+                  <img src="//intercms.damai.cn/artist/pic/1554108643078/1554108643078-main.jpg">
                 </div>
-                <p>北京相声大会 | 相声社团No1</p>
-              </div>
-            </div>
-            <i class="y_notices_moreinfo iconfont iconjiantou"></i>
-          </div>-->
-          <p class="y_detail_info_title">演职人员</p>
-          <ul>
-            <li v-for="(artistsItem,index) in projectData.detail.detailViewComponentMap.item.dynamicExtData.artists"
-            :key="index">
-              <div  class="y_detail_info_artist">
-                <div class="y_item_info_container">
-                  <div class="y_item_img">
-                    <img :src="artistsItem.picUrl">
+                <div class="y_item_info">
+                  <div class="y_item_title_container">
+                    <span class="y_item_title">德云社</span>
+                    <img src="https://gw.alicdn.com/tfs/TB1c4U2koT1gK0jSZFhXXaAtVXa-72-72.png" alt="">
                   </div>
-                  <div class="y_item_info">
-                    <div class="y_item_title_container">
-                      <span class="y_item_title">{{artistsItem.artistName}}</span>
-                      <img src="https://gw.alicdn.com/tfs/TB1c4U2koT1gK0jSZFhXXaAtVXa-72-72.png">
+                  <p>北京相声大会 | 相声社团No1</p>
+                </div>
+              </div>
+              <i class="y_notices_moreinfo iconfont iconjiantou"></i>
+            </div>-->
+            <p class="y_detail_info_title">演职人员</p>
+            <ul>
+              <li v-for="(artistsItem,index) in projectData.detail.detailViewComponentMap.item.dynamicExtData.artists"
+              :key="index">
+                <div  class="y_detail_info_artist">
+                  <div class="y_item_info_container">
+                    <div class="y_item_img">
+                      <img :src="artistsItem.picUrl">
                     </div>
-                    <p>{{artistsItem.archives}}</p>
+                    <div class="y_item_info">
+                      <div class="y_item_title_container">
+                        <span class="y_item_title">{{artistsItem.artistName}}</span>
+                        <img src="https://gw.alicdn.com/tfs/TB1c4U2koT1gK0jSZFhXXaAtVXa-72-72.png">
+                      </div>
+                      <p>{{artistsItem.archives}}</p>
+                    </div>
+                    <i class="y_notices_moreinfo iconfont iconjiantou"></i>
                   </div>
-                  <i class="y_notices_moreinfo iconfont iconjiantou"></i>
                 </div>
-              </div>
 
 
-            </li>
-          </ul>
+              </li>
+            </ul>
 
-          <p class="y_detail_info_title">演出介绍</p>
-          <div class="y_detail_info_tips_container" v-html="projectData.detail.detailViewComponentMap.item.staticData.itemExtendInfo.itemExtend">
-            {{projectData.detail.detailViewComponentMap.item.staticData.itemExtendInfo.itemExtend}}
+            <p class="y_detail_info_title">演出介绍</p>
+            <div class="y_detail_info_tips_container" v-html="projectData.detail.detailViewComponentMap.item.staticData.itemExtendInfo.itemExtend">
+              {{projectData.detail.detailViewComponentMap.item.staticData.itemExtendInfo.itemExtend}}
+            </div>
           </div>
+          <div class="y_detail_notice">
+            <ul>
+              <li v-for="(noticeList,index) in projectData.detail.detailViewComponentMap.item.staticData.noticeMatter.noticeList"
+              :key="index">
+                <p class="y_bottom_line"></p>
+                <p class="y_detail_info_title">{{noticeList.noteTitle}}</p>
+                <div class="y_detail_info_tips_container">
+                  <ul>
+                    <li v-for="(noticeItem,index) in noticeList.ticketNoteList" :key="index">
+                      <p class="y_detail_info_title">{{noticeItem.title}}</p>
+                      <p class="y_detail_info_Tips">{{noticeItem.content}}</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="y_detail_suggestion">推荐</div>
         </div>
-        <div class="y_detail_comment">
-
-        </div>
-        <div class="y_detail_notice">
-          <ul>
-            <li v-for="(noticeList,index) in projectData.detail.detailViewComponentMap.item.staticData.noticeMatter.noticeList"
-            :key="index">
-              <p class="y_bottom_line"></p>
-              <p class="y_detail_info_title">{{noticeList.noteTitle}}</p>
-              <div class="y_detail_info_tips_container">
-                <ul>
-                  <li v-for="(noticeItem,index) in noticeList.ticketNoteList" :key="index">
-                    <p class="y_detail_info_title">{{noticeItem.title}}</p>
-                    <p class="y_detail_info_Tips">{{noticeItem.content}}</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="y_detail_suggestion"></div>
       </div>
     </div>
     <div class="y_buyTicket_container">
@@ -177,54 +181,86 @@
 
 
 
-<!--  <div style=\"clear: both;>
-    <div style=\"clear: both;\">
-      <span style=\"font-size: 18px; font-weight: bold;\">配送公告</span>
-    </div>
-    <div style=\"clear: both;\">
-      <span>【广州】202020当我们谈论爱情-梁静茹世界巡回演唱会广州站，现已正式开票，麦麦正在加紧处理订单，门票自12月30日起陆续发出，请注意查收。</span>
-    </div>
-    <div style=\"clear: both;\">
-      <span><br></span>
-    </div>
-    <div style=\"clear: both;\">
-      <span style=\"font-size: 18px; font-weight: bold;\">演出介绍</span>
-    </div>
-    <div style=\"clear: both;\">202020&nbsp;当我们谈论爱情&nbsp;<br></div>
-    <div style=\"clear: both;\">When&nbsp;we&nbsp;talk&nbsp;about&nbsp;love&nbsp;<br></div>
-    <div style=\"clear: both;\"><br></div>
-    <div style=\"clear: both;\">「情歌天后-梁静茹-情歌本格派」&nbsp;<br></div>
-    <div style=\"clear: both;\">20th&nbsp;Anniversary&nbsp;The&nbsp;world&nbsp;tour&nbsp;<br></div>
-    <div style=\"clear: both;\"><br></div><div style=\"clear: both;\">你和谁擦肩而过<br></div>
-    <div style=\"clear: both;\">你和谁又重逢相会<br></div><div style=\"clear: both;\"><br></div>
-    <div style=\"clear: both;\">「梁静茹&nbsp;X&nbsp;梁静茹20周年世界巡回演唱会」&nbsp;<br></div>
-    <div style=\"clear: both;\"><br></div>
-    <div style=\"clear: both;\">在爱里&nbsp;幸福与遗憾，热恋与失去，&nbsp;<br></div>
-    <div style=\"clear: both;\">在情歌里&nbsp;当我们谈论爱情，拾获爱情</div>
-    <div style=\"clear: both;\"><br></div>
-    <div style=\"clear: both;\"></div>
-  </div>
-  <div style=\"clear: both;\">
-    <img src=\"https://img.alicdn.com/imgextra/i4/2251059038/O1CN01kOMxlM2GdSDdKg1Xc_!!2251059038.jpg\" width=\"600\" height=\"883/\" style=\"vertical-align: bottom;\"></div>
-  <div style=\"clear: both;\"></div>-->
-
 
 
 </template>
 
 <script>
   import {reqBrand,reqDetail} from "../../api"
+  import stickySlot from '../stickySlot/stickySlot'
   export default {
+    components: {
+      stickySlot
+    },
     data(){
       return{
-        projectData:{}
+        projectData:{},
+        choiceIndex:0
       }
     },
-
     async mounted() {
+      window.addEventListener('scroll', this.onScroll)
+
       let id = this.$route.params.index
       let list = await reqDetail()
       this.projectData = list.data.find((item,index)=>item.id==id)
+    },
+
+    destroy() {
+      window.removeEventListener('scroll', this.onScroll)
+    },
+    methods: {
+      onScroll() {
+        const navContents = document.querySelectorAll('.y_detail>div')
+        const offsetTopArr = []
+        navContents.forEach(item => {
+          offsetTopArr.push(item.offsetTop)
+        })
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+        let navIndex = 0
+        for (let n = 0; n < offsetTopArr.length; n++) {
+          if (scrollTop >= offsetTopArr[n]) {
+            navIndex = n
+          }
+        }
+        this.choiceIndex = navIndex
+      },
+
+      scrollTo(index){
+        this.choiceIndex = index;
+        const targetOffsetTop = document.querySelector(`.y_detail>div:nth-child(${index + 1})`).offsetTop - 60
+        let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+        const STEP = 50
+        if (scrollTop > targetOffsetTop) {
+          smoothUp()
+        } else {
+          smoothDown()
+        }
+        function smoothDown() {
+          if (scrollTop < targetOffsetTop) {
+            if (targetOffsetTop - scrollTop >= STEP) {
+              scrollTop += STEP
+            } else {
+              scrollTop = targetOffsetTop
+            }
+            document.body.scrollTop = scrollTop
+            document.documentElement.scrollTop = scrollTop
+            requestAnimationFrame(smoothDown)
+          }
+        }
+        function smoothUp() {
+          if (scrollTop > targetOffsetTop) {
+            if (scrollTop - targetOffsetTop >= STEP) {
+              scrollTop -= STEP
+            } else {
+              scrollTop = targetOffsetTop
+            }
+            document.body.scrollTop = scrollTop
+            document.documentElement.scrollTop = scrollTop
+            requestAnimationFrame(smoothUp)
+          }
+        }
+      }
     }
   }
 
@@ -447,6 +483,8 @@
       .y_project_detail_choice
         padding 15px 20px
         background white
+        position: sticky;
+        top 0
         .y_detail_container
           >ul
             display flex
@@ -554,10 +592,9 @@
           width 100%
           padding-bottom 10px
           color #888
-          >div
-            >img
-              width 100%
-              height 100%
+          img
+            width 100%
+            height 100%
             >div
               >span
                 font-weight normal
@@ -570,8 +607,6 @@
             font-size 13px
             color #888
             line-height 1.5em
-      /*评价*/
-      .y_detail_comment
 
       /*须知*/
       .y_detail_notice
@@ -591,6 +626,8 @@
       /*推荐*/
       /*.y_detail_suggestion*/
   .y_buyTicket_container
+    position sticky
+    bottom 0
     display flex
     flex-direction row
     justify-content space-between
@@ -598,7 +635,8 @@
     align-items center
     font-size 14px
     color #676767
-    padding 12px 20px 100px
+    padding 12px 20px 2px
+    background white
     i
       font-size 24px
       font-weight bold

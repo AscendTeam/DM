@@ -11,7 +11,15 @@ import ajax from './ajax'
   // export const reqStar = ()=>ajax('http://localhost:3000/getStar')
   export const reqStar = ()=>ajax('/getstar')
 // 获取brand数据
+//export const reqBrand = ()=>ajax('/circle/dys')
 export const reqBrand = ()=>ajax('/circle/dys')
-//export const reqBrand = ()=>ajax('http://localhost:3000/circle/dys')
-//获取轮播照片的数据
-export const reqSwiper=()=>ajax('/getswiper')
+
+// 详情页面数据
+export const reqDetail = () => ajax('/getdetail')
+
+//获取token
+export const reqPwdLogin = ({name, info}) => ajax.post('/login_pwd', {name,info})
+//自动登录
+export const reqAutoLogin = () => ajax.get('/auto_login')
+//轮播图片获取
+export const reqSwiper = () => ajax('/getswiper')

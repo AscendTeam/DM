@@ -1,6 +1,6 @@
 <template>
   <div>
-      <div class="w-all-center"> 
+      <div class="w-all-center">
         <div class="w-space"></div>
         <!-- 搜索 -->
         <div class="w-home-top">
@@ -15,8 +15,8 @@
           <i class="iconfont iconrili iconuser1"></i>
           <i class="iconfont iconduihua1 iconuser"></i>
         </div>
-      <div class="div3"></div>  
-      <div class="w-header" ref="fix"> 
+      <div class="div3"></div>
+      <div class="w-header" ref="fix">
       <div class="wrapper w-search-fix">
         <!-- 导航跳转 -->
         <div class="navbar">
@@ -33,8 +33,8 @@
             <div class="swiper-wrapper">
               <div class="swiper-slide" v-for="(item,index) in swiper" :key="index">
                 <img :src="item" alt="">
-              </div>   
-            </div>  
+              </div>
+            </div>
           <!-- 小圆点 -->
           <div class="swiper-pagination"></div>
           </div>
@@ -96,9 +96,8 @@
           <MenuList/>
         </div>
       </div>
-       
       </div>
-    </div> 
+    </div>
   </div>
 </template>
 
@@ -110,7 +109,6 @@
   import ShakeDown from '../../component/Shakedown/Shakedown'
   import MenuList from '../../component/MenuList/MenuList'
   import { reqSwiper } from "../../api";
-import { watch } from 'fs'
   export default{
    components:{
      HomeScroll,
@@ -126,7 +124,6 @@ import { watch } from 'fs'
      let data = await reqSwiper();
      if (data.code == 0) {
      this.swiper =data.data.swiperImg;
-     console.log(this.swiper)
     }
    },
    watch:{
@@ -135,7 +132,7 @@ import { watch } from 'fs'
           new BScroll(this.$refs.fix,{scrollY:true,bounce:false}),
           new Swiper('.swiper-container',{
           loop: true,
-          autoplay:true, 
+          autoplay:true,
           pagination:{
             el: '.swiper-pagination'
           }
@@ -144,28 +141,28 @@ import { watch } from 'fs'
      }
    }
 
-  }   
+  }
 </script>
 <style scoped lang="stylus" rel="stylesheet/stylus">
   .w-all-center
     background #8DC26F
     color white
     .w-space
-      height 10px     
+      height 10px
     .w-home-top
       display flex
       justify-content center
       height 20px
       line-height 20px
-      .w-home-top-city 
+      .w-home-top-city
         vertical-align middle
         font-size 18px
         .icon-top-city
           font-size 18px
           vertical-align middle
-      .w-search-ladel  
-        justify-content center 
-        border 1px solid 
+      .w-search-ladel
+        justify-content center
+        border 1px solid
         height 20px
         border-radius 15px 15px 15px 0
         font-size 15px
@@ -175,8 +172,8 @@ import { watch } from 'fs'
         background white
         .iconsearch
           margin auto 10px
-          color black 
-        .searchtext 
+          color black
+        .searchtext
           color #999999
   .iconuser
     font-size 20px
@@ -184,56 +181,56 @@ import { watch } from 'fs'
     margin-left 10px
   .iconuser1
     font-size 20px
-    margin-top 5px 
+    margin-top 5px
   .div3
-    height 30px   
+    height 30px
   .w-header
     height 572px
-    overflow hidden  
-  .navbar   
+    overflow hidden
+  .navbar
     display flex
     justify-content center
     margin-top 10px
-    .navlist 
+    .navlist
       display flex
-      justify-content center 
+      justify-content center
       li
         font-size 15px
         display block
-        padding 0 5px 
+        padding 0 5px
   .swiper-container
     width 100%
     margin-top 15px
-    img 
+    img
       width 335px
       height 160px
       display block
-      border-radius 15px 
-      margin auto 
+      border-radius 15px
+      margin auto
   .w-nav-list
-    margin-top 15px 
-    ul 
+    margin-top 15px
+    ul
       display flex
-      flex-wrap wrap 
+      flex-wrap wrap
       white-space pre-wrap
       justify-content space-around
       li
         display block
         padding 10px
         justify-content space-around
-        i 
+        i
           font-size 30px
           display inline-block
           margin 0 10px
-        span 
+        span
           display block
-          color black 
-          margin 2px 4px 
-  .w-title 
+          color black
+          margin 2px 4px
+  .w-title
     font-size 20px
-    color black 
-    font-weight bold 
+    color black
+    font-weight bold
     padding 15px
   .scroll-container
-    overflow hidden       
+    overflow hidden
 </style>

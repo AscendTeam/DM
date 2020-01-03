@@ -115,8 +115,7 @@
           .s2
             display block
             font-size 14px
-            font-size #aaaaaa
-            padding 12px 0px 0px
+            padding 12px 0 0
           .s3
             display block
             color #000

@@ -5,6 +5,12 @@
         <li class="y_brand_project_item">
           <BrandItem v-if="brandData" :data="brandData" ></BrandItem>
         </li>
+        <li class="y_brand_project_item">
+          <BrandItem v-if="brandData" :data="brandData" ></BrandItem>
+        </li>
+        <li class="y_brand_project_item">
+          <BrandItem v-if="brandData" :data="brandData" ></BrandItem>
+        </li>
       </ul>
 
     </div>

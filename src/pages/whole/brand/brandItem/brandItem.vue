@@ -11,7 +11,8 @@
         </div>
         <p>{{data.artistVO.projectCount}}场在售演出 | {{data.artistVO.fansNum}}粉丝</p>
       </div>
-      <p class="y_attention_button">关注</p>
+<!--      <p class="y_attention_button">关注</p>-->
+      <p class="y_attention_button" @click.stop="Attention">{{isAttention?"已关注":"关注"}}</p>
     </div>
     <div  v-if="data.performanceMore" class="y_brand_project_info">
       <div class="y_brand_project_info_container wrapper" ref="wrapper">
@@ -39,14 +40,25 @@
   import BScroll from 'better-scroll'
   export default {
     props:[
-      'data'
+      'data',
     ],
+    data(){
+      return{
+        isAttention:false
+      }
+    },
+
     mounted() {
       if (this.data.length>0) {
         console.log('mounted goods')
       }
     },
     methods:{
+
+      Attention(){
+        this.isAttention = !this.isAttention
+      },
+
       initScroll(){
         if (!this.Scroll) {
           this.scroll = new BScroll(this.$refs.wrapper, {

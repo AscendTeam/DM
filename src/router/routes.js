@@ -1,8 +1,11 @@
 import Home from '../pages/home/home.vue'
 import Whole from '../pages/whole/whole.vue'
+
+import WholeShow from '../pages/whole/show/show'
 import WholeCoffee from '../pages/whole/coffee/coffee'
 import WorksDetail from '../component/worksDetail/worksDetail'
 import WholeBrand from '../pages/whole/brand/brand'
+
 
 import Discover from '../pages/discover/discover.vue'
 import Wallet from '../pages/wallet/wallet.vue'
@@ -64,6 +67,13 @@ export default [
         meta: {
           isShowFooter: true
         },
+      },
+      {
+        path: 'show',
+        component: WholeShow,
+        meta: {
+          isShowFooter: true
+        },
       }
     ]
   },
@@ -111,7 +121,7 @@ export default [
     path:'/user',
     component:User
   },
-  
+
   // {
   //   path:'/personal',//用户界面
   //   component:Personal,
@@ -127,7 +137,7 @@ export default [
     path:'/myorder',//订单
     component:MyOrder,
     children:[
-      { 
+      {
         path:"all",
         component:All
       },
@@ -145,12 +155,12 @@ export default [
       }
 
     ]
-  }, 
+  },
   {
     path:'',
     redirect:'/personal'
   },
-  
+
 
   {
     path:'/search',//跳转抢票站页面

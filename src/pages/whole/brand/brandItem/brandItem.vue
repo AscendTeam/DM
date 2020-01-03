@@ -50,7 +50,6 @@
 
     mounted() {
       if (this.data.length>0) {
-        console.log('mounted goods')
       }
     },
     methods:{
@@ -73,7 +72,7 @@
     },
     watch: {
       data () {
-        console.log('watch data', this.data)
+        // console.log('watch data', this.data)
         this.$nextTick(() => {
           this.initScroll()
         })

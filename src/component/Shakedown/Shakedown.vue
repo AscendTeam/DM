@@ -2,7 +2,7 @@
   <div>
     <div class="shakedownContainer" >
       <div class="head" @click="$router.push('/ticket')">
-        <h1>抢票播报站</h1>
+        <i>抢票播报站</i>
         <span class="s1">168万人想看德云社北京</span>
         <span class="more"> > </span>
       </div>
@@ -12,7 +12,8 @@
         <span class="s1">[北京]开心麻花爆笑舞台剧《鞠菊菊鞠菊菊</span>
         <span class="s2">4387人想看</span>
         <div class="pr">
-          <span class="price">￥80起</span>
+          <span class="price">￥80</span>
+          <span class="qi">起</span>
           <button>去抢票</button>
         </div>
       </div>
@@ -29,46 +30,52 @@
 <style scoped lang="stylus" rel="stylesheet/stylus">
    @import "../../common/stylus/mixins.styl"
   .shakedownContainer
-    width 100%
+    margin 10px auto
+    width 90%
     height 100%
     border-radius 10px
     background-color #fff
+    border-radius 10px
+    border 1px solid #efefef
+    box-shadow 0 3px 8px #ccc
     .head
-      height 60px
-      display flex
-      justify-content center
+      height 40px
+      // display flex
+      // justify-content center
       border-bottom: 1px solid rgba(7, 17, 27, 0.1)
-      h1
-        height 60px
-        font-size 22px
-        line-height 60px
+      i
+        padding-left 10px
+        height 40px
+        font-size 18px
+        font-weight bold
+        line-height 40px
         color red
-      .s1 
-        height 60px
-        line-height 60px
-        font-size 16px
+      &>.s1 
+        height 40px
+        line-height 40px
+        font-size 12px
         padding 0 10px 
       .more
-        font-size 20px
-        height 60px
-        line-height 60px
-        margin-left 20px
+        padding-right 10px
+        float right 
+        font-size 24px
+        height 40px
+        line-height 36px
     .contentContainer
       display flex
       padding-top 10px
       .qwe
-        width 80px
-        height 80px
-        border-radius 13px
-        padding-right 10px
+        width 50px
+        height 70px
+        border-radius 5px
+        margin 0 10px
       .content
         height 80px
-
         .s1
           display block
           font-weight bold
-          font-size 22px
-          width 300px
+          font-size 18px
+          width 264px
           white-space nowrap
           overflow hidden
           text-overflow ellipsis
@@ -84,13 +91,19 @@
           position relative
           .price
             color red
-            font-size 20px
+            font-size 16px
+          .qi
+            margin-left 3px
+            font-size 12px
+            color #898989
           button
-            background pink
+            background-color #ff1268
+            border none
+            height 24px
             color #fff 
             border-radius 10px
             position absolute
-            right 30px
+            right 10px
             bottom 8px
   span 
     font-size 24px            

@@ -54,12 +54,7 @@
         </ul>
       </div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+   
   </div>
 </template>
 
@@ -137,8 +132,8 @@
         .y_item_info
           p
             &.y_info_title
-              font-size 16px
-              color #111
+              font-size 14px
+              color #000
               line-height 1.2em
               display: -webkit-box;
               -webkit-box-orient: vertical;

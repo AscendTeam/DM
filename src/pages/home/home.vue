@@ -15,7 +15,7 @@
           <i class="iconfont iconrili iconuser1"></i>
           <i class="iconfont iconduihua1 iconuser"></i>
         </div>
-      <div class="div3"></div>
+      <!-- <div class="div3"></div> -->
       <div class="w-header" ref="fix">
       <div class="wrapper w-search-fix">
         <!-- 导航跳转 -->
@@ -92,6 +92,7 @@
         <div class="scroll-container">
           <HomeScroll/>
         </div>
+        <div style="height:16px"> </div>
         <div>
           <MenuList/>
         </div>
@@ -144,30 +145,29 @@
   }
 </script>
 <style scoped lang="stylus" rel="stylesheet/stylus">
-  .w-all-center
-    background #8DC26F
-    color white
     .w-space
-      height 10px
+      height 12px
     .w-home-top
       display flex
       justify-content center
-      height 20px
+      height 40px
       line-height 20px
       .w-home-top-city
         vertical-align middle
-        font-size 18px
+        font-size 16px
+        display inline-block
+        line-height 30px
         .icon-top-city
           font-size 18px
           vertical-align middle
       .w-search-ladel
         justify-content center
         border 1px solid
-        height 20px
+        height 25px
         border-radius 15px 15px 15px 0
         font-size 15px
         width 220px
-        line-height 20px
+        line-height 25px
         margin 0 10px
         background white
         .iconsearch
@@ -195,9 +195,9 @@
       display flex
       justify-content center
       li
-        font-size 15px
+        font-size 12px
         display block
-        padding 0 5px
+        padding 0 12px
   .swiper-container
     width 100%
     margin-top 15px
@@ -209,6 +209,7 @@
       margin auto
   .w-nav-list
     margin-top 15px
+    text-align center
     ul
       display flex
       flex-wrap wrap

@@ -23,3 +23,7 @@ export const reqPwdLogin = ({name, info}) => ajax.post('/login_pwd', {name,info}
 export const reqAutoLogin = () => ajax.get('/auto_login')
 //轮播图片获取
 export const reqSwiper = () => ajax('/getswiper')
+
+export const reqDiscover = () => ajax('/getdiscover')
+//获取评论列表
+export const reqBuzz = () => ajax('/getbuzz')

@@ -7,7 +7,8 @@ import WorksDetail from '../component/worksDetail/worksDetail'
 import WholeBrand from '../pages/whole/brand/brand'
 
 
-import Discover from '../pages/discover/discover.vue'
+import Discover from '../pages/discover/discover'
+import Details from '../pages/discover/details';
 import Wallet from '../pages/wallet/wallet.vue'
 // import Profile from '../pages/profile/profile.vue'
 import User from "../pages/user/user.vue"
@@ -78,8 +79,15 @@ export default [
     ]
   },
   {
-    path:'/discover',//发现
-    component:Discover
+    path: '/discover',//发现
+    component: Discover,
+    meta: {
+      isShowFooter: true
+    }
+  },
+  {
+    path:'/details',
+    component:Details,
   },
   {
     path: '/wallet',//票夹

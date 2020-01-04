@@ -8,7 +8,9 @@
     <div class="container_x" ref="container">
       <div class="wrapper_x">
         <!-- 轮播图 -->
-        <div class="carousel"></div>
+        <div class="carousel">
+          <Scroll/>
+        </div>
         <!-- 轮播底部内容 -->
           <div class="show-box_x">
             <!-- 左边盒子的布局 -->
@@ -29,7 +31,7 @@
             </div>
           </div>
       </div>
-    
+
       <!-- 视频头部标题 -->
       <div class="watch_skin_x">
         <div class="wach_bar_x">
@@ -49,7 +51,7 @@
           </div>
         </div>
       </div>
-      
+
     </div>
 
   </div>
@@ -57,8 +59,13 @@
 
 <script type="text/ecmascript-6">
 import BScroll from 'better-scroll'
+import Scroll from '../../component/scroll/scroll'
+
 import { mapState } from "vuex";
   export default {
+    components:{
+      Scroll
+    },
     mounted(){
       this.$store.dispatch("getDiscover")
     },
@@ -96,9 +103,10 @@ import { mapState } from "vuex";
     margin-top 20px
     // 轮播样式
 .carousel
+  padding-top 40px
   width 100%
-  height 200px
-  background-color #4F171A
+  /*height 200px*/
+  /*background-color #4F171A*/
   //轮播下两个块元素的样式
 .show-box_x
   display flex
@@ -120,7 +128,7 @@ import { mapState } from "vuex";
     .show-cell-explain_x
       font-size 15px
       padding 0px 0px 15px 15px
-      i 
+      i
         font-size 25px
         color red
 //视频区域的样式
@@ -149,7 +157,7 @@ import { mapState } from "vuex";
     width 100%
     margin 20px 0
     .content_x
-      display block 
+      display block
       font-size 20px
       font-weight bold
       margin 20px
@@ -161,11 +169,11 @@ import { mapState } from "vuex";
       display flex
       border 1px solid #f6f6f6
       border-radius 8px
-      img 
+      img
         margin 5px 5px
         height 100px
         border-radius 8px
-      span 
+      span
         font-size 16px
         white-space pre-wrap
         display -webkit-box

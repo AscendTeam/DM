@@ -36,7 +36,7 @@
               </div>
             </div>
           <!-- 小圆点 -->
-          <div class="swiper-pagination"></div>
+            <div class="swiper-pagination"></div>
           </div>
         <!-- 节目列表 -->
         <div class="w-nav-list" >

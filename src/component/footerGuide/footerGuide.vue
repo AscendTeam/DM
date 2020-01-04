@@ -16,7 +16,7 @@
       <span class="iconfont iconticket "></span>
       <span class="y_bottom_text">票夹</span>
     </router-link>
-    <router-link class="listRouter" :class="{active:$route.path==='/profile'}" to='/profile'>
+    <router-link class="listRouter" :class="{active:$route.path==='/personal'}" to='/personal'>
       <span class="iconfont iconuser "></span>
       <span class="y_bottom_text">我的</span>
     </router-link>

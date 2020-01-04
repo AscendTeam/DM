@@ -1,6 +1,6 @@
 <template>
   <div class="showContainer">
-      
+
     <div class="wrapper" ref="wrap">
       <ul class="content" >
         <li @click="showList(index)" class="listItem " :class="{active:navIndex ===index}" v-for="(item, index) in navList" :key="index">{{item}}</li>
@@ -37,21 +37,21 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import Whole from '@/component/whole/whole'
-  import Party from '@/component/party/party'
+  import Whole from '../../../component/whole/whole'
+  import Party from '../../../component/party/party'
   import BScroll from 'better-scroll'
-  
+
   import Swiper from 'swiper'
   import  'swiper/css/swiper.min.css'
-  
- 
+
+
   export default {
     components:{
       Whole,
       Party
-      
+
     },
-    
+
     data() {
       return {
         navIndex:0,
@@ -75,18 +75,18 @@
       }
     },
     // async mounted(){
-      
-      
+
+
     //   let data = await reqStar()
     //   if (data.code==0) {
     //     this.starList = data.data
     //   }
     // },
-   
+
       mounted() {
         this.$nextTick(()=>{
           new BScroll(this.$refs.wrap,{scrollX:true,bounce:false,click:true})
-          
+
         })
       },
       methods: {
@@ -97,7 +97,7 @@
       }
   }
 
-      
+
     // },
     //  watch: {
     //   starList(){
@@ -114,10 +114,9 @@
     // }
 </script>
 
+
 <style scoped lang="stylus" rel="stylesheet/stylus">
   .showContainer
-          
-            
     background pink
     .wrapper
       overflow hidden
@@ -128,8 +127,7 @@
       white-space nowrap
       .content
         // width 100%
-        background pink	
-        
+        background pink
         display inline-block
         .listItem
           line-height 40px
@@ -141,9 +139,5 @@
           &.active
             color red
             font-size 16px
-    
-   
-
-
-
+</style>
 
